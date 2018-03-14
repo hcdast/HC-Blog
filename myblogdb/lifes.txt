@@ -1,0 +1,14 @@
+{
+"_id":"",
+"title":"",
+"author":"",
+"type":"",
+"clickNum":"",
+"comments":[{}],
+"content":"",
+"pageUrl":"",
+"imgUrl":"",
+"pit":"",
+"praise":"",
+"report":""
+}

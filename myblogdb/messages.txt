@@ -1,0 +1,16 @@
+{
+  "_id":"111111111111",
+  "user": "胡陈",
+  "content": "你好",
+  "time": "",
+  "userImg":"",
+  "report":"",
+  "pit":"",
+  "praise":"",
+  "reply":[{
+        "user":"",
+        "userImg":"",
+        "time":"",
+        "content":""
+    }]
+}

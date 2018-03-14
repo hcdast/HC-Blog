@@ -1,0 +1,13 @@
+{
+"_id":"201711201723",
+"name":"胡陈",
+"password":"hc123",
+"phone":"18817509360",
+"email":"1984146116@qq.com",
+"isAdmin":true,
+"registTime":"201711201723",
+"lastLoginTime":"201711211945",
+"loginAcount":"blog",
+"ava":"",
+"level":0
+}
