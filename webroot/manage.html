@@ -1,0 +1,833 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>欢迎来到HC个人博客</title>
+  <meta name="keywords" content="HC的博客" />
+  <meta name="description" content="如影随形主题的个人博客" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" media="screen" />
+  <link href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.css" rel="stylesheet">
+  <link href="css/media.css" rel="stylesheet">
+  <link href="css/base.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/index/index.css" rel="stylesheet">
+  <link href="css/index/login.css" rel="stylesheet">
+  <link href="css/index/regist.css" rel="stylesheet">
+  <link href="css/manage/manage.css" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+  <!-- icons-->
+  <script src="https://use.fontawesome.com/55b5a1fcdd.js"></script>
+  <!--IE9-->
+  <script src="js/modernizr.js"></script>
+  <!--jquery-->
+  <script src="js/jquery.js"></script>
+  <!--cookie-->
+  <script src="js/tools/jquery.cookie.js"></script>
+  <!--global-->
+  <script src="js/tools/global.js"></script>
+  <!--bkframe-->
+  <script src="js/tools/bkframe.js"></script>
+  <!--layout-->
+  <script src="js/tools/layout.js"></script>
+  <!-- bootstrop -->
+  <script src="js/tools/bootstrap.min.js"></script>
+  <!--验证码-->
+  <script src="js/tools/code.js"></script>
+  <!--验证客户端-->
+  <script src="js/tools/client.js"></script>
+  <!--弹出框-->
+  <script src="https://cdn.bootcss.com/toastr.js/latest/toastr.min.js"></script>
+  <script src="js/tools/toastrConfig.js"></script>
+  <!--生成时间-->
+  <script src="js/tools/time.js"></script>
+  <!--cookie-->
+  <script src="js/tools/cookie.js"></script>
+  <!--登录-->
+  <script src="./js/login.js"></script>
+  <!--跳转-->
+  <script src="js/tools/localUrl.js"></script>
+  <!-- manage -->
+  <script src="js/manage/manage.js"></script>
+  <!--socket.io-->
+  <!--<script src="js/socket.io.js"></script>-->
+  <!--<script src="  https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>-->
+  <!--页面初始化-->
+  <script src="js/pageInit.js"></script>
+  <!--qq登录-->
+  <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="100330589" data-redirecturi=""
+    charset="utf-8"></script>
+</head>
+
+<body>
+  <!-- 标题栏 -->
+  <div class="topnav">
+    <!--站内搜索-->
+    <div class="search">
+      <form target="_blank" class="form" action="http://zhannei.baidu.com/cse/site">
+        <input type="text" class="text" name="q" size="30">
+        <input type="submit" class="submit" value="搜索">
+        <input type="hidden" name="cc" value="hcdast.com">
+      </form>
+    </div>
+    <!--登录注册模块-->
+    <div id="login-regist" class="login-regist" style="display: block">
+      <!--注册-->
+      <div class="regist">
+        <button class="regist-btn" onclick="enterRegist()">注册</button>
+      </div>
+      <!--登录-->
+      <div class="login">
+        <button class="login-btn" onclick="enterLogin()">登陆</button>
+      </div>
+    </div>
+    <!-- QQ登陆信息模块-->
+    <div id="QQloginStatu" class="QQloginStatu">
+    </div>
+    <!--退出-->
+    <div class="blogLoginStatu" id="blogLoginStatu">
+    </div>
+  </div>
+
+  <!--登录注册-->
+  <div id="back">
+    <div class="boxLogin" id="login">
+      <div class="login5">
+        <h2>用户||管理员——登录</h2>
+        <a onclick="closeLogin()"></a>
+        <!--╳-->
+      </div>
+      <div class="login51">
+        <div class="login5left">
+          <span></span>
+          <!-- 账号-->
+          <div class="login5left1">
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+            </i>
+            <input type="text" id="user" placeholder="用户名" />
+          </div>
+          <!-- 密码-->
+          <div class="login5left1">
+            <i class="fa fa-lock fa-2x" aria-hidden="true"></i>
+            <input type="password" id="psd" placeholder="密码" />
+          </div>
+          <!--验证码 -->
+          <div class="login5left1">
+            <i class="fa fa-qrcode fa-2x " aria-hidden="true"></i>
+            <input type="text" class="ipt_vry" name="ipt_vry" placeholder="验证码" />
+            <input type="button" id='l_checkCode' class="pro_vry" name="pro_vry" value="" onclick="initCode()">
+          </div>
+          <div class="isadmin">
+            <input type="radio" name="identity" value="4" checked="checked">普通用户
+            <!-- <input type="radio" name="identity" value="3"  >测试用户 -->
+            <input type="radio" name="identity" value="2"  >博主
+            <input type="radio" name="identity" value="1"  >管理员
+            <!-- <input type="radio" name="identity" value="0">超级管理员 -->
+          </div>
+          <!-- 登录-->
+          <div class="login5left2">
+            <button class="dl" onclick="login()">登录</button>
+            <a style="cursor: pointer" class="wjmm" onclick="getPassword()">忘记密码？</a>
+          </div>
+        </div>
+        <div class="login5right">
+          <span></span>
+          <div class="login5right1">
+            <a class="sjdl">手机短信登录</a>
+          </div>
+          <div class="login5right2">
+            没有账号？
+            <a style="cursor: pointer" class="zcdl" onclick="enterRegist()">快速注册</a>
+          </div>
+          <div class="login5right3">
+            <b class="found"></b>合作账号登录
+            <b class="back"></b>
+          </div>
+          <div class="login5right4">
+            <!--<div class="qq" onclick="qqLogin()">-->
+            <!--<img src="image/bt_92X120.png" id="qqLoginBtn" >-->
+            <!--</div>-->
+            <!--<a class="wb">微信</a>-->
+            <span id="qqLoginBtn"></span>
+            <script type="text/javascript">
+              otherLogin();
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="boxRegist" id="regist">
+      <div class="regist5">
+        <h2>用户——注册</h2>
+        <a onclick="closeRegist()"></a>
+        <!--╳-->
+      </div>
+      <div class="regist51">
+        <div name="regist5form">
+          <div class="regist5left">
+            <span></span>
+            <!-- 账号-->
+            <div class="regist5left1">
+              <label> 用户名：</label>
+              <input type="text" id="username" placeholder="用户名" />
+            </div>
+            <!-- 密码-->
+            <div class="regist5left1">
+              <label> 密 码：</label>
+              <input type="password" id="password" placeholder="密码" />
+            </div>
+            <div class="regist5left1">
+              <label> 邮 箱：</label>
+              <input type="text" id="email" placeholder="邮箱" />
+            </div>
+            <div class="regist5left1">
+              <label> 手机号：</label>
+              <input type="text" id="phone" placeholder="手机号" />
+            </div>
+            <!--验证码 -->
+            <div class="regist5left1">
+              <label> 验证码：</label>
+              <input type="text" class="ipt_vry" name="ipt_vry" placeholder="验证码" />
+              <input type="button" id='r_checkCode' class="pro_vry" name="pro_vry" value="" onclick="initCode()">
+            </div>
+          </div>
+          <div class="regist5right">
+            <!--头像-->
+            <label> 请选择你的头像：</label>
+            <div class="regist5photo" id="imgPreview">
+              <img id="imghead" class="regist5PreImg">
+            </div>
+            <div class="regist5file">
+              <input type="file" onchange="previewImage(this)" id="fileupload">
+            </div>
+          </div>
+          <!-- 注册-->
+          <div class="regist5btn">
+            <button class="dl" onclick="regist()">注册</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!--主体-->
+  <div class="ibody">
+    <header>
+      <h1>天道酬勤——厚德载物</h1>
+      <h2>天行健，君子以自强不息；地势坤，君子以厚德载物。</h2>
+      <div class="logo">
+        <a href="/"></a>
+      </div>
+      <nav id="topnav">
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我</a>
+        <a href="life.html">慢生活</a>
+        <a href="share.html">在分享</a>
+        <a href="message.html">留言板</a>
+        <a href="manage.html" class="admin" id="topnav_current">管理员</a>
+      </nav>
+    </header>
+    <div class="center">
+
+      <div class="title">
+        <ul id="itemlist">
+        </ul>
+      </div>
+
+      <div class="content">
+        <div class="header">
+          <div class="wd" id="typetitle">文章列表</div>
+          <div class="act">
+            <i class="fa fa-refresh fa-2x" onclick="flushList(this)"></i>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="body">
+          <!-- 文章 -->
+          <div id="article">
+            <div class="articlelist" id="articlelist">
+              <div class="article-header">
+                <ul>
+                  <li>序号</li>
+                  <li style="width:95px">标题</li>
+                  <li style="width:80px">类型</li>
+                  <li>作者</li>
+                  <li style="width:100px">编辑时间</li>
+                  <li style="width:100px">页面链接</li>
+                  <li style="width:80px">操作</li>
+                </ul>
+              </div>
+              <div class="article-list">
+                
+              </div>
+            </div>
+            <div class="addarticle" id="addarticle">
+              <div class="atitle">
+                <div class="wd">文章标题:</div>
+                <input type="text" id="addarticletitle" placeholder="请输入文章标题">
+                <span class="log"></span>
+              </div>
+              <div class="atype">
+                <div class="wd">文章类型:</div>
+                <select name="type" id="addarticletype">
+                  <option value="0">政治知事</option>
+                  <option value="1">国防军事</option>
+                  <option value="2">经济论坛</option>
+                  <option value="3">文化先锋</option>
+                  <option value="4">科学探索</option>
+                  <option value="5">体育中心</option>
+                </select>
+              </div>
+              <div class="aauthor">
+                <div class="wd">文章作者:</div>
+                <select name="aothor" id="addarticleauthor">
+                  <option value="hc">hc</option>
+                  <option value="yn">yn</option>
+                </select>
+              </div>
+              <div class="acontent">
+                <div class="wd">文章简介:</div>
+                <textarea name="acontent" id="addarticlecontent" cols="35" rows="10" placeholder="请输入文章简介"></textarea>
+              </div>
+              <div class="aimgurl">
+                <div class="wd">简介配图:</div>
+                <input type="file" onchange="uploadImage(this)" id="addarticleimgurl" name="imgurl">
+              </div>
+              <div class="atime">
+                <div class="wd">编辑时间:</div>
+                <input type="text" id="addarticletime" disabled="disabled" placeholder="未设置时间">
+                <span name="article" onclick="addTime(this)">
+                  <i class="fa fa-calendar" fa-2x></i>
+                </span>
+              </div>
+
+              <div class="asave">
+                <div class="wd">文章操作:</div>
+                <button onclick="addArticle()">添加文章</button>
+              </div>
+            </div>
+            <div class="articleinfo" id="articleinfo">
+                <div class="atitle">
+                    <div class="wd">文章标题:</div>
+                    <input type="text" id="articletitleinfo" placeholder="请输入文章标题">
+                    <span class="log"></span>
+                  </div>
+                  <div class="atype">
+                    <div class="wd">文章类型:</div>
+                    <select name="type" id="articletypeinfo">
+                      <option value="0">政治知事</option>
+                      <option value="1">国防军事</option>
+                      <option value="2">经济论坛</option>
+                      <option value="3">文化先锋</option>
+                      <option value="4">科学探索</option>
+                      <option value="5">体育中心</option>
+                    </select>
+                  </div>
+                  <div class="aauthor">
+                    <div class="wd">文章作者:</div>
+                    <select name="aothor" id="articleauthorinfo">
+                      <option value="hc" >hc</option>
+                      <option value="yn">yn</option>
+                    </select>
+                  </div>
+                  <div class="acontent">
+                    <div class="wd">文章简介:</div>
+                    <textarea name="acontent" id="articlecontentinfo" cols="35" rows="10" placeholder="请输入文章简介"></textarea>
+                  </div>
+                   
+    
+                  <div class="asave">
+                    <div class="wd">文章操作:</div>
+                    <button name = "article" onclick="update(this)">修改文章</button>
+                  </div>
+            </div>
+          </div>
+          <!-- 分享 -->
+          <div id="share">
+            <!-- 分享列表 -->
+            <div class="sharelist" id="sharelist">
+              <div class="share-header">
+                <ul>
+                  <li>序号</li>
+                  <li style="width:95px">标题</li>
+                  <li style="width:80px">类型</li>
+                  <li>作者</li>
+                  <li style="width:100px">分享时间</li>
+                  <li style="width:100px">页面链接</li>
+                  <li style="width:80px">操作</li>
+                </ul>
+              </div>
+              <div class="share-list">
+                 
+              </div>
+            </div>
+            <!-- 添加分享 -->
+            <div class="addshare" id="addshare">
+              <div class="stitle">
+                <div class="wd">分享标题:</div>
+                <input type="text" id="addsharetitle" placeholder="请输入分享标题（书、人、电影、回忆）">
+                <span class="log"></span>
+              </div>
+              <div class="stype">
+                <div class="wd">分享类型:</div>
+                <select name="type" id="addsharetype">
+                  <option value="0">那本书</option>
+                  <option value="1">那个人</option>
+                  <option value="2">那场电影</option>
+                  <option value="3">那段记忆</option>
+                </select>
+              </div>
+              <div class="sauthor">
+                <div class="wd">分享人:</div>
+                <select name="author" id="addshareauthor">
+                  <option value="hc">hc</option>
+                  <option value="yn">yn</option>
+                </select>
+              </div>
+              <div class="scontent">
+                <div class="wd">分享简介:</div>
+                <textarea name="content" id="addsharecontent" cols="35" rows="10" placeholder="请输入分享简介"></textarea>
+              </div>
+              <div class="simgurl">
+                <div class="wd">分享配图:</div>
+                <input type="file" onchange="uploadImage(this)" id="addshareimgurl" name="imgurl">
+              </div>
+              <div class="stime">
+                <div class="wd">分享时间:</div>
+                <input type="text" id="addsharetime" disabled="disabled" placeholder="未设置时间">
+                <span name="share" onclick="addTime(this)">
+                  <i class="fa fa-calendar" fa-2x></i>
+                </span>
+              </div>
+              <div class="ssave">
+                <div class="wd">分享操作:</div>
+                <button onclick="addShare()">添加分享</button>
+              </div>
+            </div>
+            <!-- 分享详情 -->
+            <div class="shareinfo" id="shareinfo">
+              <div class="stitle">
+                <div class="wd">分享标题:</div>
+                <input type="text" id="sharetitleinfo" placeholder="请输入分享标题（书、人、电影、回忆）">
+                <span class="log"></span>
+              </div>
+              <div class="stype">
+                <div class="wd">分享类型:</div>
+                <select name="type" id="sharetypeinfo">
+                  <option value="0">那本书</option>
+                  <option value="1">那个人</option>
+                  <option value="2">那场电影</option>
+                  <option value="3">那段记忆</option>
+                </select>
+              </div>
+              <div class="sauthor">
+                <div class="wd">分享人:</div>
+                <select name="author" id="shareauthorinfo">
+                  <option value="hc" >hc</option>
+                  <option value="yn">yn</option>
+                </select>
+              </div>
+              <div class="scontent">
+                <div class="wd">分享简介:</div>
+                <textarea name="content" id="sharecontentinfo" cols="35" rows="10" placeholder="请输入分享简介"></textarea>
+              </div>
+              <div class="ssave">
+                <div class="wd">分享操作:</div>
+                <button onclick="update(this)" name ="share" >修改分享</button>
+              </div>
+            </div>
+          </div>
+          <!-- 生活 -->
+          <div id="life">
+            <!-- 生活列表 -->
+            <div class="lifelist" id="lifelist">
+              <div class="life-header">
+                <ul>
+                  <li>序号</li>
+                  <li style="width:95px">标题</li>
+                  <li style="width:80px">类型</li>
+                  <li>作者</li>
+                  <li style="width:100px">编辑时间</li>
+                  <li style="width:100px">页面链接</li>
+                  <li style="width:80px">操作</li>
+                </ul>
+              </div>
+              <div class="life-list">
+                
+              </div>
+            </div>
+            <!-- 添加生活 -->
+            <div class="addlife" id="addlife">
+              <div class="ltitle">
+                <div class="wd">生活标题:</div>
+                <input type="text" id="addlifetitle" placeholder="请输入生活标题">
+                <span class="log"></span>
+              </div>
+              <div class="ltype">
+                <div class="wd">生活类型:</div>
+                <select name="type" id="addlifetype">
+                  <option value="0">爱情导语</option>
+                  <option value="1">技术学习</option>
+                  <option value="2">心灵鸡汤</option>
+                  <option value="3">百味人生</option>
+                  <option value="4">娱乐吐槽</option>
+                </select>
+              </div>
+              <div class="lauthor">
+                <div class="wd">生活作者:</div>
+                <select name="aothor" id="addlifeauthor">
+                  <option value="hc">hc</option>
+                  <option value="yn">yn</option>
+                </select>
+              </div>
+              <div class="lcontent">
+                <div class="wd">生活简介:</div>
+                <textarea name="content" id="addlifecontent" cols="35" rows="10" placeholder="请输入文章简介"></textarea>
+              </div>
+              <div class="limgurl">
+                <div class="wd">简介配图:</div>
+                <input type="file" onchange="uploadImage(this)" id="addlifeimgurl" name="imgurl">
+              </div>
+              <div class="ltime">
+                <div class="wd">编辑时间:</div>
+                <input type="text" id="addlifetime" disabled="disabled" placeholder="未设置时间">
+                <span name="life" onclick="addTime(this)">
+                  <i class="fa fa-calendar" fa-2x></i>
+                </span>
+              </div>
+
+              <div class="lsave">
+                <div class="wd">生活操作:</div>
+                <button onclick="addLife()">添加生活</button>
+              </div>
+            </div>
+            <!-- 生活详情 -->
+            <div class="lifeinfo" id="lifeinfo">
+              <div class="ltitle">
+                <div class="wd">生活标题:</div>
+                <input type="text" id="lifetitleinfo" placeholder="请输入生活标题">
+                <span class="log"></span>
+              </div>
+              <div class="ltype">
+                <div class="wd">生活类型:</div>
+                <select name="type" id="lifetypeinfo">
+                  <option value="0">爱情导语</option>
+                  <option value="1">技术学习</option>
+                  <option value="2">心灵鸡汤</option>
+                  <option value="3">百味人生</option>
+                  <option value="4">娱乐吐槽</option>
+                </select>
+              </div>
+              <div class="lauthor">
+                <div class="wd">生活作者:</div>
+                <select name="author" id="lifeauthorinfo">
+                  <option value="hc">hc</option>
+                  <option value="yn">yn</option>
+                </select>
+              </div>
+              <div class="lcontent">
+                <div class="wd">生活简介:</div>
+                <textarea name="content" id="lifecontentinfo" cols="35" rows="10" placeholder="请输入文章简介"></textarea>
+              </div>
+              <div class="lsave">
+                <div class="wd">生活操作:</div>
+                <button onclick="update(this)" name= "life">修改生活</button>
+              </div>
+            </div>
+          </div>
+          <!-- 用户 -->
+          <div class="users" id="users">
+            <div class="userslist" id="userslist">
+              <div class="users-header">
+                <ul>
+                  <li>序号</li>
+                  <li style="width:80px">用户名</li>
+                  <li style="width:80px">手机号</li>
+                  <li style="width:85px">邮箱</li>
+                  <li style="width:65px">注册账号</li>
+                  <li style="width:95px">注册时间</li>
+                  <li style="width:80px">操作</li>
+                </ul>
+              </div>
+              <div class="users-list">
+              </div>
+            </div>
+            <div class="addusers" id="addusers">
+              <div class="utitle">
+                <div class="wd">用户名称:</div>
+                <input type="text" id="addusersname" placeholder="请输入用户名称">
+                <span class="log"></span>
+              </div>
+              <div class="uphone">
+                <div class="wd">手机号:</div>
+                <input type="text" id="addusersphone" placeholder="请输入手机号">
+                <span class="log"></span>
+              </div>
+              <div class="uemail">
+                <div class="wd">注册邮箱:</div>
+                <input type="text" id="addusersemail" placeholder="请输入注册邮箱">
+                <span class="log"></span>
+              </div>
+              <div class="upassword">
+                <div class="wd">登录密码:</div>
+                <input type="password" id="adduserspassword" placeholder="请设置登录密码">
+                <span class="log"></span>
+              </div>
+              <div class="utype">
+                <div class="wd">用户类型:</div>
+                <select name="type" id="adduserstype">
+                </select>
+              </div>
+              <div class="uimgurl">
+                <div class="wd">用户头像:</div>
+                <input type="file" onchange="uploadImage(this)" id="addusersimgurl" name="imgurl">
+              </div>
+              <div class="utime">
+                <div class="wd">创建时间:</div>
+                <input type="text" id="adduserstime" disabled="disabled" placeholder="未设置时间">
+                <span name="users" onclick="addTime(this)">
+                  <i class="fa fa-calendar" fa-2x></i>
+                </span>
+              </div>
+
+              <div class="usave">
+                <div class="wd">操作:</div>
+                <button onclick="addUser()">创建用户</button>
+              </div>
+            </div>
+            <div class="usersinfo" id="usersinfo">
+              <div class="utitle">
+                <div class="wd">用户名称:</div>
+                <input type="text" id="usersnameinfo" placeholder="请输入用户名称">
+                <span class="log"></span>
+              </div>
+              <div class="uphone">
+                <div class="wd">手机号:</div>
+                <input type="text" id="usersphoneinfo" placeholder="请输入手机号">
+                <span class="log"></span>
+              </div>
+              <div class="uemail">
+                <div class="wd">注册邮箱:</div>
+                <input type="text" id="usersemailinfo" placeholder="请输入注册邮箱">
+                <span class="log"></span>
+              </div>
+              <div class="upassword">
+                <div class="wd">登录密码:</div>
+                <input type="password" id="userspasswordinfo" placeholder="请设置登录密码">
+                <span class="log"></span>
+              </div>
+              <div class="utype">
+                <div class="wd">用户类型:</div>
+                <select name="type" id="userstypeinfo">
+                  <option value="0">超级管理员</option>
+                  <option value="1">管理员</option>
+                  <option value="2">博主</option>
+                  <option value="3">测试用户</option>
+                  <option value="4">普通用户</option>
+                </select>
+              </div>
+              <div class="usave">
+                <div class="wd">操作:</div>
+                <button onclick="update(this)" name="user">修改用户</button>
+              </div>
+            </div>
+          </div>
+          <!-- 留言 -->
+          <div class="message" id="message">
+            <div class="messagelist" id="messagelist">
+              <div class="message-header">
+                <ul>
+                  <li>序号</li>
+                  <li style="width:95px">用户名</li>
+                  <li style="width:160px">留言内容</li>
+                  <li style="width:120px">留言时间</li>
+                  <li>回复数</li>
+                  <li style="width:80px">操作</li>
+                </ul>
+              </div>
+              <div class="message-list">
+              </div>
+            </div>
+            <div class="messageinfo" id="messageinfo">
+              <!-- 留言详情 -->
+                <div class="ltitle">
+                  <div class="wd">留言用户:</div>
+                  <input type="text" id="messageusername" disabled="disabled">
+                  <span class="log"></span>
+                </div>
+                <div class="ltime">
+                  <div class="wd">留言时间:</div>
+                  <input type="text" id="messagetimeinfo" disabled="disabled">
+
+                </div>
+                <div class="lcontent">
+                  <div class="wd">留言内容:</div>
+                  <div name="content" id="messagecontentinfo" class="messagecontentinfo" >
+                      <div class="reply-header">
+                        <ul>
+                          <li style="width: 20%">回复人</li>
+                          <li style="width: 40%">回复内容</li>
+                          <li style="width: 25%">回复时间</li>
+                          <li style="width: 15%">操作</li>
+                         </ul>
+                      </div>
+                      <div class="reply-body" id="reply-list">
+
+                      </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- 博主 -->
+          <div class="blogger" id="blogger">
+            <div class="bloggerlist" id="bloggerlist">
+              <div class="blogger-header">
+                <ul>
+                  <li>序号</li>
+                  <li style="width:90px">博主</li>
+                  <li style="width:150px">邮箱</li>
+                  <li>文章</li>
+                  <li>生活</li>
+                  <li>分享</li>
+                  <li style="width:150px">注册时间</li>
+
+                </ul>
+              </div>
+              <div class="blogger-list">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 侧边 -->
+      <aside>
+        <div class="menu ph_news">
+          <div class="item single article" name="article" onclick="selectModel(this)">
+            <h2>
+              <p>文章管理</p>
+            </h2>
+          </div>
+          <div class="item double life" name="life" onclick="selectModel(this)">
+            <h2>
+              <p>生活管理</p>
+            </h2>
+          </div>
+          <div class="item single share" name="share" onclick="selectModel(this)">
+            <h2>
+              <p>分享管理</p>
+            </h2>
+          </div>
+          <div class="item double message" name="message" onclick="selectModel(this)">
+            <h2>
+              <p>留言管理</p>
+            </h2>
+          </div>
+          <div class="item single users" name="users" onclick="selectModel(this)">
+            <h2>
+              <p>用户管理</p>
+            </h2>
+          </div>
+          <div class="item double blogger" name="blogger" onclick="selectModel(this)">
+            <h2>
+              <p>博主管理</p>
+            </h2>
+          </div>
+        </div>
+        <div class="copyright">
+          <ul>
+            <p> Design by
+              <a href="/">HC</a>
+            </p>
+            <p>皖ICP备17023783号</p>
+            <p>Copyright © 2017 HC. All Rights Reserved.</p>
+            </p>
+          </ul>
+        </div>
+      </aside>
+      <div class="foot">
+        <div class="all">
+          总计：
+          <span class="num" id="alldata"></span>
+        </div>
+        <div class="pageinput">
+          <input type="number" name="num"  >
+        </div>
+        <div class="pagego" name="go" onclick="goPage(this)">
+          <button>GO</button>
+        </div>
+        <div class="pagepre">
+          <button name="pre" onclick="goPage(this)">上一页 </button>
+        </div>
+        <div class="pageinfo">
+          <span id="allpage"></span>
+        </div>
+        <div class="pagenext">
+          <button name="net" onclick="goPage(this)">下一页 </button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="clear"></div>
+    <!-- 清除浮动 -->
+  </div>
+
+</body>
+ 
+<script>
+window.onload=function(){
+    manageInit();
+}
+// 页面信息
+function pageInfo(data) {
+  if(data==null){
+    alldata=0;
+    nowpage=1;
+    allpage=1;
+  }else{
+    alldata = data.alldata;
+    nowpage = data.nowpage;
+    allpage = data.allpage;
+  }
+    var allData = $("#alldata");
+    var allPage = $("#allpage");
+    allData.html("");
+    allPage.html("");
+
+    allData.append(alldata);
+    allPage.append(nowpage+"/"+allpage);
+}
+  // 页面跳转
+function goPage(obj) {
+    var type = $(obj).attr("name");
+    var num = 1;
+    if(type=="go"){
+        num = $(".foot .pageinput input").val();
+        num = num>allpage?allpage:num;
+        num = num<0?1:num;
+        $(".foot .pageinput input").val(num)
+    }
+    if(type=="pre"){
+        num = nowpage-1>1?nowpagea-1:1
+    }
+    if(type=="net"){
+        num = nowpage+1<allpage?nowpagea+1:allpage
+    }
+    var data = {page:num}
+    if(model=="article"){ getArticle(data); return }
+    if(model=="life"){ getLife(data); return }
+    if(model=="share"){ getShare(data); return }
+    if(model=="message"){ getMessage(data); return }
+    if(model=="users"){ getUser(data); return }
+    if(model=="blogger"){ getBlogger(data); return }
+}
+</script>
+
+</html>

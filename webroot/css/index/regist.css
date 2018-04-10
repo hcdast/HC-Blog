@@ -1,0 +1,138 @@
+.boxRegist{
+    width:100%;
+    height:68%;
+    margin:34px auto;
+    z-index:5;
+    position:fixed;
+    background:rgba(0, 0, 0, 0.52) none repeat scroll 0% 0%;
+    opacity:1;
+    display: none;
+}
+.regist5{
+    width:550px;
+    background:#b52200;
+    text-align:center;
+    position:relative;
+    margin:10px auto 0px auto;
+}
+.regist5 .back{
+    background:url(../../images/index/back.jpg) 0px 0px no-repeat;
+    position:absolute;
+    width:30px; height:30px;
+    right:460px; top:18px;
+}
+.regist5 h2{
+    font-size:30px;
+    line-height:65px;
+    color:#ffffff;
+}
+.regist5 a{
+    background:url(../../images/index/login_reg.png) 0px 0px no-repeat;
+    position:absolute;
+    width:16px;
+    height:16px;
+    right:10px;
+    top:25px;
+}
+.regist51{
+    width:550px;
+    margin:0 auto;
+    background:#EFEFEF;
+    height:350px; }
+.regist5left{
+    width: 65%;
+    float:left;
+    font-size:13px;}
+.regist5left span{
+    line-height:24px;
+    color:#f00;
+    margin-left:10px;}
+.regist5left1{
+    margin-left: 40px;
+    width: 350px;
+    margin-bottom:18px;
+    float:left;
+    position:relative;
+    display:block;}
+.regist5left1 label{
+    color: brown;
+    font-size: 14px;
+
+}
+.regist5left1 input{
+    text-indent:10px;
+    width:220px; color:#999;
+    font-size:13px;
+    height:30px;
+    line-height:40px;
+    border:1px solid #999;
+    border-radius:5px;}
+.regist5left1 .ipt_vry {
+    text-indent: 10px;
+    width: 90px;
+    color: #999;
+    font-size: 13px;
+    height: 30px;
+    line-height: 40px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+.regist5left1 .pro_vry {
+    font-size: 24px;
+    text-align: match-parent;
+    margin: 0px -10px 0px 0px;
+    text-indent: 10px;
+    width: 110px;
+    color: #999;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding-right: 10px;
+}
+
+.regist5right {
+    width: 30%;
+    margin-top: 20px;
+    margin-left: 20px;
+    float: left;
+}
+
+.regist5right label {
+    margin-left: -25px;
+    color: sienna;
+    font-size: 20px;
+}
+.regist5right .regist5photo {
+    margin: 20px 0px 20px -15px;
+    height: 150px;
+    width: 150px;
+    background: gray;
+    border-radius: 100%;
+}
+
+.regist5right .regist5photo .regist5PreImg{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.regist5right .regist5file {
+    margin: 10px 0px 0px -25px;
+}
+.regist5right .regist5file input {
+    width: 100%;
+}
+
+.regist5btn {
+    margin: auto;
+    width: 100px;
+    height: auto;
+}
+
+
+
+.regist5left2{margin-left: 100px;
+    height:45px; line-height:45px; width:100%; margin-bottom:22px; float:left; position:relative; display:block;}
+.regist5btn .dl{ float:left; width:97px; height:45px; line-height:45px; text-align:center; background:none repeat scroll 0% 0% #55ACEF; color:#fff; border-radius:5px; display:inline-block; font-size:14px; outline:medium none;}
+.regist5left2 .wjmm{ color:#55ACEF; margin-left:20px;}

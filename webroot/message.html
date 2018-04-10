@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>个人博客</title>
+  <meta name="keywords" content="HC的博客" />
+  <meta name="description" content="如影随形主题的个人博客" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" media="screen" />
+
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/rightside.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/media.css" rel="stylesheet">
+    <link href="css/index/login.css" rel="stylesheet">
+    <link href="css/index/regist.css" rel="stylesheet">
+    <link href="css/message/message.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+     <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+    <!--jquery-->
+    <script src="js/jquery.js"></script>
+    <!--cookie-->
+    <script src="js/tools/jquery.cookie.js"></script>
+    <!--global-->
+    <script src="js/tools/global.js"></script>
+    <!--bkframe-->
+    <script src="js/tools/bkframe.js"></script>
+    <!--layout-->
+    <script src="js/tools/layout.js" ></script>
+    <!--登录-->
+    <script src="./js/login.js"></script>
+    <!--验证码-->
+    <script src="js/tools/code.js"></script>
+    <!--验证客户端-->
+    <script src="js/tools/client.js"></script>
+    <!--弹出框-->
+    <script src="https://cdn.bootcss.com/toastr.js/latest/toastr.min.js"></script>
+    <script src="js/tools/toastrConfig.js"></script>
+    <!--生成时间-->
+    <script src="js/tools/time.js"></script>
+    <!--cookie-->
+    <script src="js/tools/cookie.js"></script>
+    <!--跳转-->
+    <script src="js/tools/localUrl.js"></script>
+    <script src="js/message/message.js"></script>
+    <!--socket.io-->
+    <!--<script src="js/socket.io.js"></script>-->
+    <!--<script src="  https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>-->
+    <!--页面初始化-->
+    <script src="js/pageInit.js"></script>
+    <!--qq登录-->
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
+            data-appid="100330589" data-redirecturi="" charset="utf-8"></script>
+    <script src="https://use.fontawesome.com/55b5a1fcdd.js"></script>
+
+</head>
+<body>
+<div class="topnav">
+    <!--站内搜索-->
+    <div class="search">
+        <form target="_blank" class="form" action="http://zhannei.baidu.com/cse/site">
+            <input type="text" class="text" name="q" size="30">
+            <input type="submit" class="submit" value="搜索">
+            <input type="hidden" name="cc" value="hcdast.com">
+        </form>
+    </div>
+    <!--登录注册模块-->
+    <div id="login-regist" class="login-regist" style="display: block" >
+        <!--注册-->
+        <div class="regist">
+            <button class="regist-btn" onclick="enterRegist()">注册</button>
+        </div>
+        <!--登录-->
+        <div class="login">
+            <button class="login-btn" onclick="enterLogin()">登陆</button>
+        </div>
+    </div>
+    <!-- QQ登陆信息模块-->
+    <div id="QQloginStatu" class="QQloginStatu" >
+    </div>
+    <!--退出-->
+    <div class="blogLoginStatu" id="blogLoginStatu" >
+    </div>
+</div>
+
+<!--登录注册-->
+<div id="back" >
+    <div class="boxLogin" id="login"  >
+      <div class="login5">
+        <h2>用户||管理员——登录</h2>
+        <a onclick="closeLogin()"></a>  <!--╳-->
+      </div>
+      <div class="login51">
+        <div class="login5left">
+          <span></span>
+          <!-- 账号-->
+          <div class="login5left1">
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i></i><input type="text" id="user" placeholder="用户名" />
+          </div>
+          <!-- 密码-->
+          <div class="login5left1">
+            <i class="fa fa-lock fa-2x" aria-hidden="true"></i><input type="password" id="psd" placeholder="密码" />
+          </div>
+          <!--验证码 -->
+          <div class="login5left1">
+            <i class="fa fa-qrcode fa-2x " aria-hidden="true"></i><input type="text"   class="ipt_vry" name="ipt_vry" placeholder="验证码" />
+            <input  type="button" id='l_checkCode' class="pro_vry" name="pro_vry"  value="" onclick="initCode()">
+          </div>
+          <div class="isadmin">
+            <input type="radio" name="identity" value="4" checked="checked">普通用户
+            <!-- <input type="radio" name="identity" value="3"  >测试用户 -->
+            <input type="radio" name="identity" value="2"  >博主
+            <input type="radio" name="identity" value="1"  >管理员
+            <!-- <input type="radio" name="identity" value="0">超级管理员 -->
+          </div>
+          <!-- 登录-->
+          <div class="login5left2">
+            <button class="dl" onclick="login()">登录</button>
+            <a style="cursor: pointer" class="wjmm" onclick="getPassword()">忘记密码？</a>
+          </div>
+        </div>
+        <div class="login5right">
+          <span></span>
+          <div class="login5right1">
+            <a class="sjdl">手机短信登录</a>
+          </div>
+          <div class="login5right2">
+            没有账号？<a style="cursor: pointer"  class="zcdl" onclick="enterRegist()">快速注册</a>
+          </div>
+          <div class="login5right3">
+            <b class="found"></b>合作账号登录<b class="back"></b>
+          </div>
+          <div class="login5right4">
+            <!--<div class="qq" onclick="qqLogin()">-->
+            <!--<img src="image/bt_92X120.png" id="qqLoginBtn" >-->
+            <!--</div>-->
+            <!--<a class="wb">微信</a>-->
+            <span id="qqLoginBtn"></span>
+            <script type="text/javascript">
+              otherLogin();
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="boxRegist" id="regist" >
+      <div class="regist5">
+        <h2>用户——注册</h2>
+        <a onclick="closeRegist()"></a>  <!--╳-->
+      </div>
+      <div class="regist51">
+        <div name="regist5form"  >
+          <div class="regist5left">
+            <span></span>
+            <!-- 账号-->
+            <div class="regist5left1">
+              <label> 用户名：</label><input type="text"  id="username"  placeholder="用户名" />
+            </div>
+            <!-- 密码-->
+            <div class="regist5left1">
+              <label> 密  码：</label> <input type="password" id="password"  placeholder="密码" />
+            </div>
+            <div class="regist5left1">
+              <label> 邮  箱：</label> <input type="text" id="email"  placeholder="邮箱" />
+            </div>
+            <div class="regist5left1">
+              <label> 手机号：</label><input type="text" id="phone" placeholder="手机号" />
+            </div>
+            <!--验证码 -->
+            <div class="regist5left1">
+              <label> 验证码：</label>
+              <input type="text"   class="ipt_vry" name="ipt_vry" placeholder="验证码" />
+              <input type="button"
+                     id='r_checkCode' class="pro_vry" name="pro_vry"  value="" onclick="initCode()">
+            </div>
+          </div>
+          <div class="regist5right">
+            <!--头像-->
+            <label> 请选择你的头像：</label>
+            <div class="regist5photo" id="imgPreview">
+              <img id="imghead" class="regist5PreImg"  >
+            </div>
+            <div class="regist5file">
+              <input type="file" onchange="previewImage(this)" id="fileupload">
+            </div>
+          </div>
+          <!-- 注册-->
+          <div class="regist5btn">
+            <button class="dl" onclick="regist()">注册</button>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+  </div>
+
+<div class="ibody">
+  <header>
+    <h1>天道酬勤——厚德载物</h1>
+    <h2>天行健，君子以自强不息；地势坤，君子以厚德载物。</h2>
+    <div class="logo"><a href="/"></a></div>
+    <nav id="topnav">
+      <a href="index.html">首页</a>
+      <a href="about.html">关于我</a>
+      <a href="life.html">慢生活</a>
+      <a href="share.html">在分享</a>
+      <a href="message.html" id="topnav_current">留言板</a>
+      <a href="manage.html" class="admin" >管理员</a>
+    </nav>
+  </header>
+  <article>
+    <h2 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="/message.html">留言板</a></h2>
+    <div class="message">
+        <!--留言专区-->
+        <div class="comments">
+            <div class="comments-lbl"><div class="comments-lbl-title">留言专区</div></div>
+            <div class="comments-body">
+                <div class="comments-input">
+                    <textarea id="comCon" placeholder="既然来了，就说几句吧"></textarea>
+                    <button onclick="publish()">畅言一下</button>
+                </div>
+            </div>
+            <div class="comments-lbl"><div class="comments-lbl-title">最新留言</div></div>
+            <div class="comments-body-list">
+                <div class="user-list" id="user-list">
+                    <div class="nodata" id="nodatalog">快来评论吧。。。</div>
+                </div>
+            </div>
+
+            <div class="more" name="1" id="pagenum" onclick="getMore(this)">》》获取更多《《</div>
+        </div>
+
+    </div>
+  </article>
+
+  <aside>
+    <div class="rnav">
+      <li class="rnav1 "><a href="/">首页</a></li>
+      <li class="rnav2 "><a href="/about.html">关于我</a></li>
+      <li class="rnav3 "><a href="/life.html">慢生活</a></li>
+      <li class="rnav4 "><a href="/share.html">在分享</a></li>
+    </div>
+    <div class="ph_news">
+      <h2>
+        <p>最新留言</p>
+      </h2>
+      <ul class="pl_n">
+        <dl>
+          <dt><img src="images/s8.jpg"> </dt>
+          <dt> </dt>
+          <dd>DanceSmile
+            <time>49分钟前</time>
+          </dd>
+          <dd><a href="/">文章非常详细，我很喜欢.前端的工程师很少，我记得几年前yahoo花高薪招聘前端也招不到</a></dd>
+        </dl>
+        
+      </ul>
+      <h2>
+        <p>最近访客</p>
+      </h2>
+        <ul class="recent-visitors-list" id="recentvisitorslist">
+        </ul>
+    </div>
+
+    <div class="copyright">
+      <ul>
+        <p> Design by <a href="/">HC</a></p>
+        <p>皖ICP备17023783号</p>
+        <p>Copyright © 2017 HC. All Rights Reserved.</p>
+        </p>
+      </ul>
+    </div>
+  </aside>
+  <div class="clear"></div>
+  <!-- 清除浮动 --> 
+</div>
+<script >
+    // <!--页面初始化-->
+    messageInit();
+</script>
+</body>
+</html>

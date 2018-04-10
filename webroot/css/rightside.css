@@ -1,0 +1,15 @@
+/*  最近访客  */
+.recent-visitors-list {
+    width: 240px;
+    height: max-content;
+ }
+.recent-visitors-list img {
+    width: 48px;
+    height: 48px;
+    display: block;
+    float: left;
+    margin-right: 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}

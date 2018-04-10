@@ -1,0 +1,174 @@
+#current {
+    color: #e41635;
+  }
+
+  .info {
+    overflow: hidden;
+    clear: both;
+    margin: 10px 0 0 0;
+    display: inline-block;
+    line-height: 26px;
+    height: 26px;
+    color: #838383;
+    background: #f6f6f6;
+    width: 100%;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 22px;
+    text-align: center;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+  }
+
+  .info span {
+    color: #759b08;
+    margin-right: 20px;
+  }
+
+  .body {
+    height: auto;
+    min-height: 500px;
+  }
+
+  .otherlink h2 {
+    border-bottom: #099 2px solid;
+    line-height: 40px;
+    font-size: 12px;
+    background: url(../../images/index/5794.png) 10px center no-repeat;
+    padding-left: 40px;
+    color: #099;
+  }
+
+  .otherlink ul {
+    margin: 10px 40px;
+  }
+
+  .otherlink ul span {
+    color: #099;
+  }
+
+  .otherlink ul li {
+    float: left;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 250px;
+    margin-left: 30px;
+  }
+
+  .otherscomments {
+    margin-top: 30px;
+  }
+
+  .otherscomments h2 {
+    border-bottom: #099 2px solid;
+    line-height: 40px;
+    font-size: 12px;
+    background: url(../../images/index/5794.png) 10px center no-repeat;
+    padding-left: 40px;
+    color: #099;
+  }
+
+  .act {
+    float: right;
+    margin-right: 50px;
+  }
+
+.act i:hover {
+    cursor: pointer;
+    color: #e41635;
+}
+
+.comments-input {
+    margin-bottom: 5px;
+    margin-left: 35px;
+}
+.comments-input textarea {
+    width: 90%;
+    height: 80px;
+    border-radius: 15px;
+    outline: none;
+    padding: 15px;
+    font-size: 16px;
+    margin-top: 5px;
+    color: saddlebrown;
+}
+.comments-input button {
+    outline: none;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 18%;
+    height: 40px;
+    margin-left: 75%;
+    background: #099;
+    color: #fff;
+}
+
+  .user-list {
+    width: 90%;
+    margin-left: 30px;
+    border: solid #666 1px;
+    border-radius: 10px;
+    height: auto;
+    min-height: 250px
+  }
+
+  .user-list .img {
+    height: 50px;
+    width: 50px;
+    margin-left: 10%;
+  }
+  .user-list .img img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 100%;
+    margin-left: -80%;
+    cursor: pointer;
+}
+  .user-list .user {
+    margin-top: -45px;
+  }
+  .user-list .user a {
+    margin-left: 13%;
+    font-size: 18px;
+}
+
+
+  .user-list .time {
+    margin-left: 75%;
+    margin-top: -16px;
+
+  }
+  .user-list .review {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  .user-list .review p {
+    margin-left: 13%;
+    font-size: 15px;
+}
+
+   
+
+ 
+  .user-list dl {
+    font-family: sans-serif;
+    margin-top: 20px;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed gray;
+  }
+
+  .user-list .nodata {
+    text-align: center;
+    padding-top: 300px;
+    width: 100%;
+    height: 350px;
+    color: #8c8d8d;
+    font-size: 24px;
+    display: block;
+  }
