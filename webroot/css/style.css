@@ -21,23 +21,42 @@ a.readmore { color: #f55f77; margin-left: 10px; font-weight: bold }
 .autor { color: #8c8d8d; line-height: 26px; background: url(../images/5794.png) no-repeat left; padding-left: 25px }
 .autor a { color: #0f9c7c; font-weight: bold }
 .autor span { margin: 0 5px 0 0; }
-.page { margin: 20px 0; text-align: center; width: 100%; overflow: hidden; }
+.page {padding-left: 25%;}
+.page div { float: left;}
+.page { margin: 20px 0; 
+    text-align: center; 
+    /* width: 100%;  */
+    width: 350px;
+    overflow: hidden; }
 .page a b { color: #999; }
-.page>b, .page a { margin: 0 2px; height: 26px; line-height: 26px; border-radius: 50%; width: 26px; text-align: center; display: inline-block }
+.page>.on, .page a { margin: 0 2px; height: 26px; line-height: 26px; border-radius: 50%; width: 26px; text-align: center; display: inline-block }
 .page a { margin: 0 2px; height: 26px; line-height: 26px; border-radius: 50%; width: 26px; text-align: center; display: inline-block }/* 针对IE6 */
-.page>b, .page a:hover { background: #333; color: #FFF; }
-.page a { color: #F33; border: #999 1px solid; }
+.page .pre .on { background: #333; color: #FFF; }
+.page .pagelist {         
+    width: auto;
+    max-width: 170px; }
+.page .pagelist .on { 
+    background: #333; 
+    color: #FFF;
+ }
+.page a:hover { background: #333; color: #FFF; }
+.page a { color: #F33; border: #999 1px solid; cursor: pointer; }
 .rnav { width: 120px; margin: 20px auto; overflow: hidden; }
-.rnav li { width: 120px; text-align: center; display: inline-block; margin-bottom: 2px; height: 40px; line-height: 40px }
+.rnav li { width: 120px; text-align: center; display: inline-block; margin-bottom: 2px; height: 35px; line-height: 40px }
 .rnav li a { color: #FFF; display: block; -webkit-transition: all 1s; -moz-transition: all 1s; -o-transition: all 1s; transition: all 1s }
 .rnav1 { background: #e41637 }
 .rnav2 { background: #f16b17 }
 .rnav3 { background: #0f9c7c }
 .rnav4 { background: #46ce14 }
+.rnav5 { background: #a988cf }
+.rnav6 { background: #53022e }
 .rnav li a:hover { background: rgba(255,255,255,0.2); -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -o-transform: rotate(360deg); transform: rotate(360deg); }
 .ph_news h2 { font-size: 16px; font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif; color: #FFF; }
 .ph_news h2 p { height: 40px; line-height: 40px; width: 100px; padding: 0 0 0 30px; border-radius: 0 20px 20px 0; text-shadow: rgba(0,0,0,.65) 1px 1px; background: #0f9c7c }
 .ph_news ul { margin: 10px }
+#recentvisitorslist {
+    height: 150px;
+}
 .ph_news li { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; width: 100%; color: #cdcbcb; line-height: 24px; height: 24px; }
 .ph_news li a { color: #cdcbcb; }
 .ph_news li a:hover, .pl_n dd a:hover { text-decoration: underline }

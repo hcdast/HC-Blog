@@ -1,0 +1,1307 @@
+.center {
+    /* background: url(../images/ibodybg.png) 560px -147px no-repeat; */
+    height: auto;
+}
+
+/* 顶部 */
+
+.ibody .title {
+    padding: 0 1px;
+    margin-left: 60px;
+    margin-top: 30px;
+    display: block;
+    z-index: 99;
+    float: left;
+    width: 60%;
+    height: 80px;
+    background: rgb(15, 156, 124);
+    border-radius: 20px;
+}
+
+.ibody .title ul {
+    margin-top: 23px;
+    background: #fff;
+    color: rgb(15, 156, 124);
+    height: 36px;
+    width: 100%;
+    border-radius: 5px;
+}
+.ibody .title ul li {
+    padding: 5px 15px;
+    text-align: center;
+    list-style: none;
+    display: block;
+    float: left;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-left: 20px;
+    cursor: pointer;
+    height: 26px;
+    /* border-radius: 10px; */
+}
+
+.ibody .center .content {
+    margin-left: 15px;
+    margin-top: 20px;
+    display: block;
+    z-index: 99;
+    float: left;
+    width: 70%;
+    height: auto;
+    /* background: url(../images/ibodybg.png) 560px -147px no-repeat; */
+    border-left: solid #666 1px;
+    border-right: solid #666 1px;
+    min-height: 500px
+}
+
+.ibody .center .content .header {
+    display: block;
+    height: 25px;
+    padding: 10px;
+    background: rgb(15, 156, 124);
+}
+
+.ibody .center .content .header .wd {
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    color: #fff;
+    float: left;
+    padding-top: 3px;
+    font-size: 20px
+}
+
+.ibody .center .content .header .act {
+    display: block;
+    height: 30px;
+    margin-right: 20px;
+    float: right;
+    color: #fff;
+}
+
+.ibody .content .line {
+    height: 2px;
+    width: 100%;
+    background: #666;
+}
+
+.ibody .content .body {
+    /* background: url(../images/ibodybg.png) 560px -147px no-repeat; */
+}
+/* 文章  article */
+.ibody .content .body #article {
+    display: block;
+}
+/* 文章  文章列表  articlelist */
+.ibody .content .body #article .articlelist {
+    display: block;
+    color: #666;
+    /* background: rgb(15, 156, 124); */
+    /* background: url(../images/ibodybg.png) 560px -147px no-repeat; */
+    padding: 10px 10px;
+    font-size: 16px
+}
+.ibody .content .body #article .articlelist .article-header {
+    padding: 5px 10px;
+    border-bottom: solid #666 2px;
+    height: 25px;
+}
+
+.ibody .content .body #article .articlelist .article-header ul li {
+    float: left;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.ibody .content .body #article .articlelist .article-list ul {
+    border-bottom: solid #666 1px;
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.ibody .content .body #article .articlelist .article-list ul:hover {
+    background: #656565;
+    color: #fff;
+    cursor: pointer;
+}
+
+.ibody .content .body #article .articlelist .article-list ul li {
+    float: left; 
+    padding: 5px 10px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ibody .content .body #article .articlelist .article-list ul li a {
+    cursor: pointer;
+    margin-right: 5px;
+}
+.ibody .content .body #article .articlelist .article-list ul li a:hover {
+    color: #e41635;
+}
+
+/* 文章  添加文章  addarticle */
+.ibody .content .body .addarticle {
+    display: none;
+    padding: 20px 50px;
+    color: #666;
+    font-size: 16px
+}
+.ibody .content .body .addarticle .wd {
+    width: 100px;
+    height: 20px;
+    text-align: right;
+    display: block;
+    float: left;
+}
+.ibody .content .body .addarticle .atitle {
+    display: block;
+}
+.ibody .content .body .addarticle input {
+    height: 18px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: -5px;
+    padding: 6px 12px;
+    color: #555;
+    /* border: 1px solid #ccc; */
+}
+.ibody .content .body .addarticle .atitle .successlog {
+    color: #ffffff; 
+    display: block;
+}
+.ibody .content .body .addarticle .atitle .errorlog {
+    color: #ff0000b7;
+    display: block;
+}
+
+.ibody .content .body .addarticle .atype {
+    margin-top: 20px;
+}
+.ibody .content .body .addarticle .atype select {
+    margin-top: -5px;
+    margin-left: 20px;
+    height: 30px;
+    width: 150px;
+    font-size: 16px;
+    text-align: center;
+}
+.ibody .content .body .addarticle .acontent {
+    margin-top: 20px;
+}
+.ibody .content .body .addarticle .acontent textarea {
+    margin-top: 20px;
+    margin-top: -5px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 6px 12px;
+}
+.ibody .content .body .addarticle .aimgurl {
+    margin-top: 20px;
+}
+.ibody .content .body .addarticle .atime {
+    margin-top: 20px;
+}
+.ibody .content .body .addarticle .atime input {
+    width: 220px;
+}
+.ibody .content .body .addarticle .atime span {
+    padding: 5px 7px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: -38px;
+}
+
+.ibody .content .body .addarticle .aauthor {
+    margin-top: 20px;
+}
+.ibody .content .body .addarticle .aauthor select {
+    margin-left: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 30px;
+    margin-top: -5px;
+    font-size: 16px;
+}
+.ibody .content .body .addarticle .asave {
+    margin-top: 20px;
+}
+.ibody .content .body .addarticle .asave button {
+    margin-top: -5px;
+    height: 40px;
+    margin-left: 20px;
+    width: 100px;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+/* 文章  文章详情  articleinfo */
+.ibody .content .body .articleinfo {
+    display: none;
+    padding: 20px 50px;
+    color: #666;
+    font-size: 16px
+}
+.ibody .content .body .articleinfo .wd {
+    width: 100px;
+    height: 20px;
+    text-align: right;
+    display: block;
+    float: left;
+}
+.ibody .content .body .articleinfo .atitle {
+    display: block;
+}
+.ibody .content .body .articleinfo input {
+    height: 18px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: -5px;
+    padding: 6px 12px;
+    color: #555;
+    /* border: 1px solid #ccc; */
+}
+.ibody .content .body .articleinfo .atitle .successlog {
+    color: #ffffff; 
+    display: block;
+}
+.ibody .content .body .articleinfo .atitle .errorlog {
+    color: #ff0000b7;
+    display: block;
+}
+
+.ibody .content .body .articleinfo .atype {
+    margin-top: 20px;
+}
+.ibody .content .body .articleinfo .atype select {
+    margin-top: -5px;
+    margin-left: 20px;
+    height: 30px;
+    width: 150px;
+    font-size: 16px;
+    text-align: center;
+}
+.ibody .content .body .articleinfo .acontent {
+    margin-top: 20px;
+}
+.ibody .content .body .articleinfo .acontent textarea {
+    margin-top: 20px;
+    margin-top: -5px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 6px 12px;
+}
+.ibody .content .body .articleinfo .aimgurl {
+    margin-top: 20px;
+}
+.ibody .content .body .articleinfo .atime {
+    margin-top: 20px;
+}
+.ibody .content .body .articleinfo .atime input {
+    width: 220px;
+}
+.ibody .content .body .articleinfo .atime span {
+    padding: 5px 7px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: -38px;
+}
+
+.ibody .content .body .articleinfo .aauthor {
+    margin-top: 20px;
+}
+.ibody .content .body .articleinfo .aauthor select {
+    margin-left: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 30px;
+    margin-top: -5px;
+    font-size: 16px;
+}
+.ibody .content .body .articleinfo .asave {
+    margin-top: 20px;
+}
+.ibody .content .body .articleinfo .asave button {
+    margin-top: -5px;
+    height: 40px;
+    margin-left: 20px;
+    width: 100px;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+
+
+
+
+/* 分享 share */
+.ibody .content .body #share {
+    display: none;
+}
+/* 分享  分享列表  sharelist */
+.ibody .content .body #share .sharelist {
+    display: block;
+    color: #666;
+    /* background: url(../images/ibodybg.png) 560px -147px no-repeat; */
+    padding: 10px 10px;
+    font-size: 16px
+}
+.ibody .content .body  #share .sharelist .share-header {
+    padding: 5px 10px;
+    border-bottom: solid #666 2px;
+    height: 25px;
+}
+.ibody .content .body  #share .sharelist .share-header ul li {
+    float: left;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.ibody .content .body  #share .sharelist .share-list ul {
+    border-bottom: solid #666 1px;
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.ibody .content .body #share .sharelist .share-list ul:hover {
+    background: #656565;
+    color: #fff;
+    cursor: pointer;
+}
+.ibody .content .body  #share .sharelist .share-list ul li {
+    float: left; 
+    padding: 5px 10px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ibody .content .body  #share .sharelist .share-list ul li a {
+    cursor: pointer;
+    margin-right: 5px;
+}
+.ibody .content .body  #share .sharelist .share-list ul li a:hover {
+    color: #e41635;
+}
+/* 分享  添加分享  addshare */
+.ibody .content .body .addshare {
+    padding: 20px 50px;
+    color: #666;
+    font-size: 16px;
+    display: none;
+}
+.ibody .content .body .addshare .wd {
+    width: 100px;
+    height: 20px;
+    text-align: right;
+    display: block;
+    float: left;
+}
+.ibody .content .body .addshare .atitle {
+    display: block;
+}
+.ibody .content .body .addshare input {
+    height: 18px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: -5px;
+    padding: 6px 12px;
+    color: #555;
+    /* border: 1px solid #ccc; */
+}
+.ibody .content .body .addshare .stitle .successlog {
+    color: #ffffff; 
+    display: block;
+}
+.ibody .content .body .addshare .stitle .errorlog {
+    color: #ff0000b7;
+    display: block;
+}
+
+.ibody .content .body .addshare .stype {
+    margin-top: 20px;
+}
+.ibody .content .body .addshare .stype select {
+    margin-top: -5px;
+    margin-left: 20px;
+    height: 30px;
+    width: 150px;
+    font-size: 16px;
+    text-align: center;
+}
+.ibody .content .body .addshare .scontent {
+    margin-top: 20px;
+}
+.ibody .content .body .addshare .scontent textarea {
+    margin-top: 20px;
+    margin-top: -5px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 6px 12px;
+}
+.ibody .content .body .addshare .simgurl {
+    margin-top: 20px;
+}
+.ibody .content .body .addshare .stime {
+    margin-top: 20px;
+}
+.ibody .content .body .addshare .stime input {
+    width: 220px;
+}
+.ibody .content .body .addshare .stime span {
+    padding: 5px 7px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: -38px;
+}
+
+.ibody .content .body .addshare .sauthor {
+    margin-top: 20px;
+}
+.ibody .content .body .addshare .sauthor select {
+    margin-left: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 30px;
+    margin-top: -5px;
+    font-size: 16px;
+}
+.ibody .content .body .addshare .ssave {
+    margin-top: 20px;
+}
+.ibody .content .body .addshare .ssave button {
+    margin-top: -5px;
+    height: 40px;
+    margin-left: 20px;
+    width: 100px;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+/* 分享 分享详情  shareinfo*/
+.ibody .content .body .shareinfo {
+    padding: 20px 50px;
+    color: #666;
+    font-size: 16px;
+    display: none;
+}
+.ibody .content .body .shareinfo .wd {
+    width: 100px;
+    height: 20px;
+    text-align: right;
+    display: block;
+    float: left;
+}
+.ibody .content .body .shareinfo .atitle {
+    display: block;
+}
+.ibody .content .body .shareinfo input {
+    height: 18px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: -5px;
+    padding: 6px 12px;
+    color: #555;
+ }
+.ibody .content .body .shareinfo .stitle .successlog {
+    color: #ffffff; 
+    display: block;
+}
+.ibody .content .body .shareinfo .stitle .errorlog {
+    color: #ff0000b7;
+    display: block;
+}
+
+.ibody .content .body .shareinfo .stype {
+    margin-top: 20px;
+}
+.ibody .content .body .shareinfo .stype select {
+    margin-top: -5px;
+    margin-left: 20px;
+    height: 30px;
+    width: 150px;
+    font-size: 16px;
+    text-align: center;
+}
+.ibody .content .body .shareinfo .scontent {
+    margin-top: 20px;
+}
+.ibody .content .body .shareinfo .scontent textarea {
+    margin-top: 20px;
+    margin-top: -5px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 6px 12px;
+}
+.ibody .content .body .shareinfo .sauthor {
+    margin-top: 20px;
+}
+.ibody .content .body .shareinfo .sauthor select {
+    margin-left: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 30px;
+    margin-top: -5px;
+    font-size: 16px;
+}
+.ibody .content .body .shareinfo .ssave {
+    margin-top: 20px;
+}
+.ibody .content .body .shareinfo .ssave button {
+    margin-top: -5px;
+    height: 40px;
+    margin-left: 20px;
+    width: 100px;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+
+
+/* 生活 life */
+.ibody .content .body #life {
+    display: none;
+}
+/* 生活  生活列表 lifelist */
+.ibody .content .body #life .lifelist {
+    display: block;
+    color: #666;
+    /* background: url(../images/ibodybg.png) 560px -147px no-repeat; */
+    padding: 10px 10px;
+    font-size: 16px
+}
+.ibody .content .body  #life .lifelist .life-header {
+    padding: 5px 10px;
+    border-bottom: solid #666 2px;
+    height: 25px;
+}
+.ibody .content .body  #life .lifelist .life-header ul li {
+    float: left;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.ibody .content .body  #life .lifelist .life-list ul {
+    border-bottom: solid #666 1px;
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.ibody .content .body  #life .lifelist .life-list ul:hover {
+    background: #656565;
+    color: #fff;
+    cursor: pointer;
+}
+.ibody .content .body  #life .lifelist .life-list ul li {
+    float: left; 
+    padding: 5px 10px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ibody .content .body  #life .lifelist .life-list ul li a {
+    cursor: pointer;
+    margin-right: 5px;
+}
+.ibody .content .body  #life .lifelist .life-list ul li a:hover {
+color: #e41635;
+}
+/* 生活  添加生活 addlife */
+.ibody .content .body .addlife {
+    padding: 20px 50px;
+    color: #666;
+    font-size: 16px
+}
+.ibody .content .body .addlife .wd {
+    width: 100px;
+    height: 20px;
+    text-align: right;
+    display: block;
+    float: left;
+}
+.ibody .content .body .addlife .ltitle {
+    display: block;
+}
+.ibody .content .body .addlife input {
+    height: 18px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: -5px;
+    padding: 6px 12px;
+    color: #555;
+    /* border: 1px solid #ccc; */
+}
+.ibody .content .body .addlife .ltitle .successlog {
+    color: #ffffff; 
+    display: block;
+}
+.ibody .content .body .addlife .ltitle .errorlog {
+    color: #ff0000b7;
+    display: block;
+}
+
+.ibody .content .body .addlife .ltype {
+    margin-top: 20px;
+}
+.ibody .content .body .addlife .ltype select {
+    margin-top: -5px;
+    margin-left: 20px;
+    height: 30px;
+    width: 150px;
+    font-size: 16px;
+    text-align: center;
+}
+.ibody .content .body .addlife .lcontent {
+    margin-top: 20px;
+}
+.ibody .content .body .addlife .lcontent textarea {
+    margin-top: 20px;
+    margin-top: -5px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 6px 12px;
+}
+.ibody .content .body .addlife .limgurl {
+    margin-top: 20px;
+}
+.ibody .content .body .addlife .ltime {
+    margin-top: 20px;
+}
+.ibody .content .body .addlife .ltime input {
+    width: 220px;
+}
+.ibody .content .body .addlife .ltime span {
+    padding: 5px 7px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: -38px;
+}
+
+.ibody .content .body .addlife .lauthor {
+    margin-top: 20px;
+}
+.ibody .content .body .addlife .lauthor select {
+    margin-left: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 30px;
+    margin-top: -5px;
+    font-size: 16px;
+}
+.ibody .content .body .addlife .lsave {
+    margin-top: 20px;
+}
+.ibody .content .body .addlife .lsave button {
+    margin-top: -5px;
+    height: 40px;
+    margin-left: 20px;
+    width: 100px;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+/* 生活 生活详情  lifeinfo */
+.ibody .content .body .lifeinfo {
+    padding: 20px 50px;
+    color: #666;
+    font-size: 16px;
+    display: none;
+}
+.ibody .content .body .lifeinfo .wd {
+    width: 100px;
+    height: 20px;
+    text-align: right;
+    display: block;
+    float: left;
+}
+.ibody .content .body .lifeinfo .ltitle {
+    display: block;
+}
+.ibody .content .body .lifeinfo input {
+    height: 18px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: -5px;
+    padding: 6px 12px;
+    color: #555;
+ }
+.ibody .content .body .lifeinfo .ltitle .successlog {
+    color: #ffffff; 
+    display: block;
+}
+.ibody .content .body .lifeinfo .ltitle .errorlog {
+    color: #ff0000b7;
+    display: block;
+}
+
+.ibody .content .body .lifeinfo .ltype {
+    margin-top: 20px;
+}
+.ibody .content .body .lifeinfo .ltype select {
+    margin-top: -5px;
+    margin-left: 20px;
+    height: 30px;
+    width: 150px;
+    font-size: 16px;
+    text-align: center;
+}
+.ibody .content .body .lifeinfo .lcontent {
+    margin-top: 20px;
+}
+.ibody .content .body .lifeinfo .lcontent textarea {
+    margin-top: 20px;
+    margin-top: -5px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 6px 12px;
+}
+.ibody .content .body .lifeinfo .lauthor {
+    margin-top: 20px;
+}
+.ibody .content .body .lifeinfo .lauthor select {
+    margin-left: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 30px;
+    margin-top: -5px;
+    font-size: 16px;
+}
+.ibody .content .body .lifeinfo .lsave {
+    margin-top: 20px;
+}
+.ibody .content .body .lifeinfo .lsave button {
+    margin-top: -5px;
+    height: 40px;
+    margin-left: 20px;
+    width: 100px;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+
+/* 留言 message */
+.ibody .content .body #message {
+    display: none;
+}
+/* 留言 留言列表  messagelist */
+.ibody .content .body #message .messagelist {
+    display: block;
+    color: #666;
+    /* background: url(../images/ibodybg.png) 560px -147px no-repeat; */
+    padding: 10px 10px;
+    font-size: 16px
+}
+.ibody .content .body  #message .messagelist .message-header {
+    padding: 5px 10px;
+    border-bottom: solid #666 2px;
+    height: 25px;
+}
+.ibody .content .body  #message .messagelist .message-header ul li {
+    float: left;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.ibody .content .body  #message .messagelist .message-list ul {
+    border-bottom: solid #666 1px;
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.ibody .content .body  #message .messagelist .message-list ul:hover {
+    background: #656565;
+    color: #fff;
+    cursor: pointer;
+}
+.ibody .content .body  #message .messagelist .message-list ul li {
+    float: left; 
+    padding: 5px 10px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ibody .content .body  #message .messagelist .message-list ul li a {
+ 
+    cursor: pointer;
+    margin-right: 5px;
+}
+.ibody .content .body  #message .messagelist .message-list ul li a:hover {
+   color: #e41635
+}
+/* 留言 message 留言详情*/
+.ibody .content .body .messageinfo {
+    padding: 20px 50px;
+    color: #666;
+    font-size: 16px;
+    display: none;
+}
+.ibody .content .body .messageinfo .wd {
+    width: 100px;
+    height: 20px;
+    text-align: right;
+    display: block;
+    float: left;
+}
+.ibody .content .body .messageinfo .ltitle {
+    display: block;
+}
+.ibody .content .body .messageinfo input {
+    height: 18px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: -5px;
+    padding: 6px 12px;
+    color: #555;
+}
+.ibody .content .body .messageinfo .ltitle .successlog {
+    color: #ffffff;
+    display: block;
+}
+.ibody .content .body .messageinfo .ltitle .errorlog {
+    color: #ff0000b7;
+    display: block;
+}
+
+.ibody .content .body .messageinfo .ltime {
+    margin-top: 20px;
+}
+.ibody .content .body .messageinfo .ltime input {
+    height: 18px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: -5px;
+    padding: 6px 12px;
+    color: #555;
+}
+.ibody .content .body .messageinfo .lcontent {
+    margin-top: 20px;
+}
+.ibody .content .body .messageinfo .lcontent .messagecontentinfo {
+    float: left;
+    margin-top: 15px;
+    margin-left: 28px;
+    font-size: 16px;
+    height: 300px;
+    width: 600px;
+    overflow: scroll;
+    background: #ccc;
+}
+.ibody .content .body .messageinfo .lcontent .messagecontentinfo .reply-header {
+    color: #fff;
+    font-size: 14px;
+    border-bottom: solid 2px #fff;
+    position: absolute;
+    /* top: 0; */
+    width: 585px;
+    background: #000;
+}
+.ibody .content .body .messageinfo .lcontent .messagecontentinfo .reply-header ul {
+    height: 20px;
+    width: 100%;
+    padding: 2px 5px;
+}
+.ibody .content .body .messageinfo .lcontent .messagecontentinfo .reply-header ul li {
+    float: left;
+    text-align: center;
+    margin-top: 3px;
+}
+.ibody .content .body .messageinfo .lcontent .messagecontentinfo .reply-body {
+    color: #fff;
+    font-size: 14px;
+    bottom:0;
+    margin-top: 25px;
+}
+.ibody .content .body .messageinfo .lcontent .messagecontentinfo .reply-body ul {
+    height: 20px;
+    width: 100%;
+    padding: 2px 5px;
+    border-bottom: solid 1px #666;
+}
+.ibody .content .body .messageinfo .lcontent .messagecontentinfo .reply-body ul:hover {
+    background: #000;
+    cursor: pointer;
+}
+.ibody .content .body .messageinfo .lcontent .messagecontentinfo .reply-body ul li {
+    float: left;
+    text-align: center;
+    margin-top: 3px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ibody .content .body .messageinfo .lcontent .messagecontentinfo .reply-body ul li span:hover {
+    cursor: pointer;
+    color: #e41635;
+}
+
+
+
+
+/* 用户 user */
+.ibody .content .body #users {
+    display: none;
+}
+/* 用户 用户列表 */
+.ibody .content .body #users .userslist {
+    display: block;
+    color: #666;
+    /* background: url(../images/ibodybg.png) 560px -147px no-repeat; */
+    padding: 10px 10px;
+    font-size: 16px
+}
+.ibody .content .body  #users .userslist .users-header {
+    padding: 5px 10px;
+    border-bottom: solid #666 2px;
+    height: 25px;
+}
+.ibody .content .body  #users .userslist .users-header ul li {
+    float: left;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.ibody .content .body  #users .userslist .users-list ul {
+    border-bottom: solid #666 1px;
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.ibody .content .body  #users .userslist .users-list ul:hover {
+    background: #656565;
+    color: #fff;
+    cursor: pointer;
+}
+.ibody .content .body  #users .userslist .users-list ul li {
+    float: left; 
+    padding: 5px 10px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ibody .content .body  #users .userslist .users-list ul li a {
+ 
+    cursor: pointer;
+    margin-right: 5px;
+}
+.ibody .content .body  #users .userslist .users-list ul li a:hover {
+    color: #e41635;
+}
+    /* 用户 添加用户  addusers */
+.ibody .content .body .addusers {
+    padding: 20px 50px;
+    color: #666;
+    font-size: 16px
+}
+.ibody .content .body .addusers .wd {
+    width: 100px;
+    height: 20px;
+    text-align: right;
+    display: block;
+    float: left;
+}
+.ibody .content .body .addusers .utitle {
+    display: block;
+}
+.ibody .content .body .addusers input {
+    height: 18px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: -5px;
+    padding: 6px 12px;
+    color: #555;
+}
+.ibody .content .body .addusers .uphone {
+    margin-top: 20px;
+}
+ 
+.ibody .content .body .addusers .uemail {
+    margin-top: 20px;
+}
+ 
+.ibody .content .body .addusers .upassword {
+    margin-top: 20px;
+}
+ 
+.ibody .content .body .addusers .utitle .successlog {
+    color: #ffffff; 
+    display: block;
+}
+.ibody .content .body .addusers .utitle .errorlog {
+    color: #ff0000b7;
+    display: block;
+}
+
+.ibody .content .body .addusers .utype {
+    margin-top: 20px;
+}
+.ibody .content .body .addusers .utype select {
+    margin-top: -5px;
+    margin-left: 20px;
+    height: 30px;
+    width: 150px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.ibody .content .body .addusers .uimgurl {
+    margin-top: 20px;
+}
+.ibody .content .body .addusers .utime {
+    margin-top: 20px;
+}
+.ibody .content .body .addusers .utime input {
+    width: 220px;
+}
+.ibody .content .body .addusers .utime span {
+    padding: 5px 7px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: -38px;
+}
+
+.ibody .content .body .addusers .usave {
+    margin-top: 20px;
+}
+.ibody .content .body .addusers .usave button {
+    margin-top: -5px;
+    height: 40px;
+    margin-left: 20px;
+    width: 100px;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+/* 用户  用户详情  userinfo */
+.ibody .content .body .usersinfo {
+    padding: 20px 50px;
+    color: #666;
+    font-size: 16px
+}
+.ibody .content .body .usersinfo .wd {
+    width: 100px;
+    height: 20px;
+    text-align: right;
+    display: block;
+    float: left;
+}
+.ibody .content .body .usersinfo .utitle {
+    display: block;
+}
+.ibody .content .body .usersinfo input {
+    height: 18px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: -5px;
+    padding: 6px 12px;
+    color: #555;
+}
+.ibody .content .body .usersinfo .uphone {
+    margin-top: 20px;
+}
+ 
+.ibody .content .body .usersinfo .uemail {
+    margin-top: 20px;
+}
+ 
+.ibody .content .body .usersinfo .upassword {
+    margin-top: 20px;
+}
+ 
+.ibody .content .body .usersinfo .utitle .successlog {
+    color: #ffffff; 
+    display: block;
+}
+.ibody .content .body .usersinfo .utitle .errorlog {
+    color: #ff0000b7;
+    display: block;
+}
+
+.ibody .content .body .usersinfo .utype {
+    margin-top: 20px;
+}
+.ibody .content .body .usersinfo .utype select {
+    margin-top: -5px;
+    margin-left: 20px;
+    height: 30px;
+    width: 150px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.ibody .content .body .usersinfo .usave {
+    margin-top: 20px;
+}
+.ibody .content .body .usersinfo .usave button {
+    margin-top: -5px;
+    height: 40px;
+    margin-left: 20px;
+    width: 100px;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+
+
+/* 博主 blogger */
+.ibody .content .body #blogger {
+    display: none;
+}
+/* 博主 博主列表 bloggerlist */
+.ibody .content .body #blogger .bloggerlist {
+    display: block;
+    color: #666;
+    /* background: url(../images/ibodybg.png) 560px -147px no-repeat; */
+    padding: 10px 10px;
+    font-size: 16px
+}
+.ibody .content .body  #blogger .bloggerlist .blogger-header {
+    padding: 5px 10px;
+    border-bottom: solid #666 2px;
+    height: 25px;
+}
+.ibody .content .body  #blogger .bloggerlist .blogger-header ul li {
+    float: left;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.ibody .content .body  #blogger .bloggerlist .blogger-list ul {
+    border-bottom: solid #666 1px;
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.ibody .content .body  #blogger .bloggerlist .blogger-list ul:hover {
+    background: #656565;
+    color: #fff;
+    cursor: pointer;
+}
+.ibody .content .body  #blogger .bloggerlist .blogger-list ul li {
+    float: left; 
+    padding: 5px 10px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ibody .content .body  #blogger .bloggerlist .blogger-list ul li a {
+    
+    cursor: pointer;
+    margin-right: 5px;
+}
+.ibody .content .body  #blogger .bloggerlist .blogger-list ul li a:hover {
+    color: #e41635;
+}
+
+
+.ibody .center .foot {
+    display: block;
+    float: left;
+    width: 70%;
+    height: 25px;
+    background: rgb(15, 156, 124);
+    border-radius: 0 0 20px 20px;
+    margin-left: 15px;
+    border-top: solid #666 2px;
+    font-size: 18px;
+    color: #fff;
+    padding: 10px 0px;
+}
+
+.ibody .center .foot div {
+    display: inline;
+}
+
+.ibody .center .foot .all {
+    margin-left: 20px;
+}
+
+.ibody .center .foot .pageinput {
+    height: 20px;
+    width: 100px;
+    padding: 5px 10px;
+    margin-left: 190px;
+}
+
+.ibody .center .foot .pageinput input {
+    height: 20px;
+    width: 100px;
+    text-align: center;
+}
+
+.ibody .center .foot .pagego {
+    margin-left: -20px;
+    padding: 2px 0 2px 8px;
+}
+
+.ibody .center .foot .pagepre {
+    margin-left: 10px;
+}
+
+.ibody .center .foot button {
+    padding: 2px 8px;
+}
+
+/* 侧边菜单 */
+
+aside {
+    margin-top: -130px;
+}
+
+.menu {
+    margin-top: 100px;
+    height: 300px
+}
+
+.menu .item {
+    width: 135px;
+    height: auto;
+    display: block;
+    float: left;
+    cursor: pointer;
+}
+
+.menu h2 {
+    margin-bottom: 10px
+}
+
+.menu .double h2 p {
+    border-radius: 20px 0 0 20px;
+    /* padding: 0 0 35px 0; */
+}

@@ -13,7 +13,7 @@ var UserSchema = new Schema({
     ava: {type: String},
     phone: { type: String },
     email: { type: String },
-    isAdmin: { type: Boolean, default: false },
+    type: { type: String, default: "4" },
     registTime: { type: String },
     lastLoginTime: { type: String },
     loginAcount:{ type: String, default: "blog" }
@@ -114,13 +114,101 @@ var lastLoginTime = function (userInfo, callback) {
 var getUser = function (data,callback) {
     model.find(data, function(err, docs) {
         if(err){
-            console.log("login error:"+docs.length);
+            // console.log("login error:"+docs.length);
             callback({statu:'err',msg:"查找出错，请确认您的查找信息！"});
         }else {
             callback({statu:"success",msg:"查找成功！",userInfo:docs});
         }
     });
 };
+//最近访客
+var recentVisitors = function (callback) {
+    model.find({},['name','ava','loginAcount'], function(err, docs) {
+        if(err){
+             callback({statu:'err',msg:"查找出错，请确认您的查找信息！"});
+        }else {
+            callback({statu:"success",msg:"查找成功！",data:docs});
+        }
+    }).sort({lastLoginTime:-1}).limit(12);
+};
+//用户列表数据
+var getData = function (data,callback) {
+    var page = parseInt(data.page)-1;
+    var limit = data.limit;
+    model.find({},function (err,docs) {
+       if(!err){
+            if(docs.length>0){
+                callback({statu:"success",msg:"获取数据成功！",data:docs});
+            }else{
+                callback({statu:"success",msg:"已经到底了。。。",data:docs});
+            }
+       }else{
+           callback({statu:"err",msg:"获取用户数据失败 ！"});
+       }
+    }).sort({_id:-1}).skip(page*limit).limit(limit);
+};
+// 查询编辑人员
+function getEditUsers(data,callback) {
+    model.find(data,{name:1}, function(err, docs) {
+        if(err){
+             callback({statu:'err',msg:"加载编辑权限用户信息出错！"});
+        }else {
+            callback({statu:"success",msg:"加载编辑权限用户信息成功！",data:docs});
+        }
+    });
+}
+// 获取博主用户
+function getBlogger(option,data,callback) {
+    var page = parseInt(data.page)-1;
+    var limit = data.limit;
+    model.find(option,function (err,docs) {
+       if(!err){
+            if(docs.length>0){
+                callback({statu:"success",msg:"获取数据成功！",data:docs});
+            }else{
+                callback({statu:"success",msg:"已经到底了。。。",data:docs});
+            }
+       }else{
+           callback({statu:"err",msg:"获取用户数据失败 ！"});
+       }
+    }).sort({_id:-1}).skip(page*limit).limit(limit);
+}
+// 修改数据
+function update(options,data,callback) {
+    model.update(options,data,function (err) {
+        if(!err){
+            callback({statu:"success",msg:"修改数据成功！"});
+
+        }else{
+            callback({statu:"err",msg:"修改数据失败 ！"});
+        }
+    });
+}
+// 删除数据
+function remove(options,callback) {
+    model.remove(options,function (err) { 
+        if(!err){
+            callback({statu:"success",msg:"删除数据成功！"});
+        }else{
+            callback({statu:"err",msg:"删除数据失败 ！"});
+        }
+     });
+}
+// 通过id查找数据
+var getUserById = function (data,options,callback) {
+    model.find(data,options,function (err,doc) { 
+        if(!err){
+            if(doc.length>0){
+                callback({statu:"success",msg:"获取数据成功！",data:doc});
+            }else{
+                callback({statu:"success",msg:"没有查到数据",data:doc});
+            }
+       }else{
+           callback({statu:"err",msg:"获取文章数据失败 ！"});
+       }
+    });
+}
+
 
 module.exports ={
     model:model,
@@ -128,5 +216,12 @@ module.exports ={
     userRegist:userRegist,
     lastLoginTime:lastLoginTime,
     qqlogin:qqLogin,
-    getUser:getUser
+    getUser:getUser,
+    recentVisitors:recentVisitors,
+    getData:getData,
+    getEditUsers:getEditUsers,
+    getBlogger:getBlogger,
+    update:update,
+    remove:remove,
+    getUserById:getUserById
 };

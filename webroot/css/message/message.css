@@ -23,7 +23,7 @@
 .comments-body {
     margin-top: 5px;
     width: 100%;
-    background: azure;
+    /* background: azure; */
 }
 
 .comments-input {
@@ -55,22 +55,6 @@
     width: 100%;
     height: auto;
 }
-
-.comments-body-list {
-    background: azure;
-
-}
-
-.comments-body-list {
-    width: 100%;
-    height: auto;
-}
-
-.comments-body-list {
-    background: azure;
-
-}
-
 .user-list .nodata {
     text-align: center;
     padding-top: 300px;
@@ -115,6 +99,7 @@
 
 .user-list .review {
     margin-top: 5px;
+    margin-bottom: 15px;
 }
 .user-list .review p{
     margin-left: 13%;
@@ -126,6 +111,9 @@
 }
 
 /* 回复*/
+.user-list .reply-list {
+    display: none;
+}
 .user-list .reply-list .reply-user {
     font-family: sans-serif;
     margin-top: 20px;
@@ -173,8 +161,7 @@
     font-size: 12px;
     width: 88%;
 }
-.user-list .reply-list .reply-user {}
-.user-list .reply-list .reply-user {}
+ 
 
 
 /*  操作*/
@@ -182,6 +169,29 @@
     margin-bottom: 5px;
     margin-left: 60%;
 }
+.user-list .reply-contro {
+    width: 120px;
+    display: block;
+    float: left;
+    margin-left: 200px;
+    cursor: pointer;
+    text-align: center;
+    background: #474645;
+    color: #cdcbcb;
+    border-radius: 8px;
+}
+
+.user-list .reply-contro .open {
+    font-size: 16px;
+    display: block;
+
+}
+.user-list .reply-contro .close {
+    font-size: 16px;
+    display: none;
+}
+
+
 @media screen and (max-width:480px) {
     .user-list .time {
         margin-left: 210%;
@@ -227,3 +237,12 @@
     padding-top: 10px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+

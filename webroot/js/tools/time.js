@@ -23,6 +23,7 @@ function createTime() {
 
     return currentdate;
 }
+
 //休眠
 function sleep(delay,callback) {
     var start = new Date().getTime();

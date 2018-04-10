@@ -56,7 +56,8 @@ var publish = function (data,callback) {
 
 //获取数据
 var getData = function (data,callback) {
-    var page=parseInt(data.page);
+    var page = parseInt(data.page)-1;
+    var limit = data.limit;
     model.find({},function (err,docs) {
        if(!err){
             if(docs.length>0){
@@ -67,7 +68,7 @@ var getData = function (data,callback) {
        }else{
            callback({statu:"err",msg:"获取留言数据失败 ！"});
        }
-    }).sort({_id:-1}).skip(5*(page-1)).limit(5);
+    }).sort({_id:-1}).skip(page*limit).limit(limit);
 };
 
 //查询数据
@@ -85,7 +86,6 @@ var getOneData = function (data,callback) {
 //更新数据
 var updateData = function (opt,data,callback) {
     model.update({_id:opt.messageId},data,function (err) {
-        console.log(err)
         if(!err){
             callback({statu:"success",msg:"更新成功 ！"});
         }else{
@@ -93,11 +93,71 @@ var updateData = function (opt,data,callback) {
         }
     });
 };
+// 用户点评
+var userAct = function (data,options,callback) {  
+    model.update(data,options,function(err){
+        if(!err){
+            callback({statu:"success",msg:"操作成功！"});
+        }else{
+            callback({statu:"err",msg:"操作失败！"});
+        }
+    });
+};
+// 修改数据
+function update(options,data,callback) {
+    model.update(options,data,function (err) {
+        if(!err){
+            callback({statu:"success",msg:"修改数据成功！"});
 
+        }else{
+            callback({statu:"err",msg:"修改数据失败 ！"});
+        }
+    });
+}
+// 删除数据
+function remove(options,callback) {
+    model.remove(options,function (err) { 
+        if(!err){
+            callback({statu:"success",msg:"删除数据成功！"});
+        }else{
+            callback({statu:"err",msg:"删除数据失败 ！"});
+        }
+     });
+}
+// 删除回复数据
+function removeReply(optinos, callback) {
+    model.update({_id:optinos.mid},{$pull:{reply:{_id:optinos.rid}}},function(err){
+        if(!err){
+            callback({statu:"success",msg:"删除数据成功！"});
+        }else{
+            callback({statu:"err",msg:"删除数据失败 ！"});
+        }
+    });
+}
+
+// 通过id查找数据
+var getMessageById = function (data,options,callback) {
+    model.find(data,options,function (err,doc) { 
+        if(!err){
+            if(doc.length>0){
+                callback({statu:"success",msg:"获取数据成功！",data:doc});
+            }else{
+                callback({statu:"success",msg:"没有查到数据",data:doc});
+            }
+       }else{
+           callback({statu:"err",msg:"获取文章数据失败 ！"});
+       }
+    });
+};
 module.exports ={
     model:model,
     publish:publish,
     getData:getData,
     getOneData:getOneData,
-    updateData:updateData
+    updateData:updateData,
+    userAct:userAct,
+    update:update,
+    remove:remove,
+    removeReply:removeReply,
+    getMessageById:getMessageById
 };

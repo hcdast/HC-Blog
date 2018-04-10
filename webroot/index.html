@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>欢迎来到HC个人博客</title>
@@ -9,10 +10,15 @@
   <link href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.css" rel="stylesheet">
   <link href="css/media.css" rel="stylesheet">
   <link href="css/base.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
   <link href="css/index/index.css" rel="stylesheet">
   <link href="css/index/login.css" rel="stylesheet">
   <link href="css/index/regist.css" rel="stylesheet">
 
+  <!-- <link id="CommondCss" type="text/css" rel="stylesheet" href="http://www.cnblogs.com/css/common.css" />
+  <link id="MainCss" type="text/css" rel="stylesheet" href="http://www.cnblogs.com/Skins/ClearGertrude/style.css" />
+  <link id="SecondaryCss" type="text/css" rel="stylesheet" href="http://www.cnblogs.com/likun/customcss.aspx" />
+   -->
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 
   <!-- icons-->
@@ -28,9 +34,9 @@
   <!--bkframe-->
   <script src="js/tools/bkframe.js"></script>
   <!--layout-->
-  <script src="js/tools/layout.js" ></script>
+  <script src="js/tools/layout.js"></script>
   <!--登录-->
-  <script src="./js/index/index.js"></script>
+  <script src="./js/login.js"></script>
   <!--验证码-->
   <script src="js/tools/code.js"></script>
   <!--验证客户端-->
@@ -44,18 +50,23 @@
   <script src="js/tools/cookie.js"></script>
   <!--跳转-->
   <script src="js/tools/localUrl.js"></script>
+  <!-- 分页 -->
+  <script src="js/tools/page.js"></script>
   <!--socket.io-->
   <!--<script src="js/socket.io.js"></script>-->
   <!--<script src="  https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>-->
+  <!--主页面-->
+  <script src="js/index/index.js"></script>
   <!--页面初始化-->
   <script src="js/pageInit.js"></script>
   <!--qq登录-->
-  <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
-          data-appid="100330589" data-redirecturi="" charset="utf-8"></script>
- </head>
+  <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="100330589" data-redirecturi=""
+    charset="utf-8"></script>
+</head>
 
 <body>
-<div class="topnav">
+  <!-- 标题栏 -->
+  <div class="topnav">
     <!--站内搜索-->
     <div class="search">
       <form target="_blank" class="form" action="http://zhannei.baidu.com/cse/site">
@@ -65,7 +76,7 @@
       </form>
     </div>
     <!--登录注册模块-->
-    <div id="login-regist" class="login-regist" style="display: block" >
+    <div id="login-regist" class="login-regist" style="display: block">
       <!--注册-->
       <div class="regist">
         <button class="regist-btn" onclick="enterRegist()">注册</button>
@@ -76,277 +87,301 @@
       </div>
     </div>
     <!-- QQ登陆信息模块-->
-    <div id="QQloginStatu" class="QQloginStatu" >
+    <div id="QQloginStatu" class="QQloginStatu">
     </div>
     <!--退出-->
-    <div class="blogLoginStatu" id="blogLoginStatu" >
-    </div>
-</div>
-
-<!--登录注册-->
-<div id="back" >
-  <div class="boxLogin" id="login"  >
-    <div class="login5">
-      <h2>管理员登录</h2>
-      <a onclick="closeLogin()"></a>  <!--╳-->
-    </div>
-    <div class="login51">
-      <div class="login5left">
-        <span></span>
-        <!-- 账号-->
-        <div class="login5left1">
-          <i class="fa fa-user fa-2x" aria-hidden="true"></i></i><input type="text" id="user" placeholder="用户名" />
-        </div>
-        <!-- 密码-->
-        <div class="login5left1">
-          <i class="fa fa-lock fa-2x" aria-hidden="true"></i><input type="password" id="psd" placeholder="密码" />
-        </div>
-        <!--验证码 -->
-        <div class="login5left1">
-          <i class="fa fa-qrcode fa-2x " aria-hidden="true"></i><input type="text"   class="ipt_vry" name="ipt_vry" placeholder="验证码" />
-          <input  type="button" id='l_checkCode' class="pro_vry" name="pro_vry"  value="" onclick="initCode()">
-        </div>
-        <!-- 登录-->
-        <div class="login5left2">
-          <button class="dl" onclick="login()">登录</button>
-          <a style="cursor: pointer" class="wjmm" onclick="getPassword()">忘记密码？</a>
-        </div>
-      </div>
-      <div class="login5right">
-        <span></span>
-        <div class="login5right1">
-          <a class="sjdl">手机短信登录</a>
-        </div>
-        <div class="login5right2">
-          没有账号？<a style="cursor: pointer"  class="zcdl" onclick="enterRegist()">快速注册</a>
-        </div>
-        <div class="login5right3">
-          <b class="found"></b>合作账号登录<b class="back"></b>
-        </div>
-        <div class="login5right4">
-          <!--<div class="qq" onclick="qqLogin()">-->
-          <!--<img src="image/bt_92X120.png" id="qqLoginBtn" >-->
-          <!--</div>-->
-          <!--<a class="wb">微信</a>-->
-          <span id="qqLoginBtn"></span>
-          <script type="text/javascript">
-            otherLogin();
-          </script>
-        </div>
-      </div>
+    <div class="blogLoginStatu" id="blogLoginStatu">
     </div>
   </div>
 
-  <div class="boxRegist" id="regist" >
-    <div class="regist5">
-      <h2>用户注册</h2>
-      <a onclick="closeRegist()"></a>  <!--╳-->
-    </div>
-    <div class="regist51">
-      <div name="regist5form"  >
-        <div class="regist5left">
+  <!--登录注册-->
+  <div id="back">
+    <div class="boxLogin" id="login">
+      <div class="login5">
+        <h2>用户||管理员——登录</h2>
+        <a onclick="closeLogin()"></a>
+        <!--╳-->
+      </div>
+      <div class="login51">
+        <div class="login5left">
           <span></span>
           <!-- 账号-->
-          <div class="regist5left1">
-            <label> 用户名：</label><input type="text"  id="username"  placeholder="用户名" />
+          <div class="login5left1">
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+            </i>
+            <input type="text" id="user" placeholder="用户名" />
           </div>
           <!-- 密码-->
-          <div class="regist5left1">
-            <label> 密  码：</label> <input type="password" id="password"  placeholder="密码" />
-          </div>
-          <div class="regist5left1">
-            <label> 邮  箱：</label> <input type="text" id="email"  placeholder="邮箱" />
-          </div>
-          <div class="regist5left1">
-            <label> 手机号：</label><input type="text" id="phone" placeholder="手机号" />
+          <div class="login5left1">
+            <i class="fa fa-lock fa-2x" aria-hidden="true"></i>
+            <input type="password" id="psd" placeholder="密码" />
           </div>
           <!--验证码 -->
-          <div class="regist5left1">
-            <label> 验证码：</label>
-            <input type="text"   class="ipt_vry" name="ipt_vry" placeholder="验证码" />
-            <input type="button"
-                   id='r_checkCode' class="pro_vry" name="pro_vry"  value="" onclick="initCode()">
+          <div class="login5left1">
+            <i class="fa fa-qrcode fa-2x " aria-hidden="true"></i>
+            <input type="text" class="ipt_vry" name="ipt_vry" placeholder="验证码" />
+            <input type="button" id='l_checkCode' class="pro_vry" name="pro_vry" value="" onclick="initCode()">
+          </div>
+          <div class="isadmin">
+            <input type="radio" name="identity" value="4" checked="checked">普通用户
+            <!-- <input type="radio" name="identity" value="3"  >测试用户 -->
+            <input type="radio" name="identity" value="2">博主
+            <input type="radio" name="identity" value="1">管理员
+            <!-- <input type="radio" name="identity" value="0">超级管理员 -->
+          </div>
+          <!-- 登录-->
+          <div class="login5left2">
+            <button class="dl" onclick="login()">登录</button>
+            <a style="cursor: pointer" class="wjmm" onclick="getPassword()">忘记密码？</a>
           </div>
         </div>
-        <div class="regist5right">
-          <!--头像-->
-          <label> 请选择你的头像：</label>
-          <div class="regist5photo" id="imgPreview">
-            <img id="imghead" class="regist5PreImg"  >
+        <div class="login5right">
+          <span></span>
+          <div class="login5right1">
+            <a class="sjdl">手机短信登录</a>
           </div>
-          <div class="regist5file">
-            <input type="file" onchange="previewImage(this)" id="fileupload">
+          <div class="login5right2">
+            没有账号？
+            <a style="cursor: pointer" class="zcdl" onclick="enterRegist()">快速注册</a>
           </div>
-        </div>
-        <!-- 注册-->
-        <div class="regist5btn">
-          <button class="dl" onclick="regist()">注册</button>
+          <div class="login5right3">
+            <b class="found"></b>合作账号登录
+            <b class="back"></b>
+          </div>
+          <div class="login5right4">
+            <!--<div class="qq" onclick="qqLogin()">-->
+            <!--<img src="image/bt_92X120.png" id="qqLoginBtn" >-->
+            <!--</div>-->
+            <!--<a class="wb">微信</a>-->
+            <span id="qqLoginBtn"></span>
+            <script type="text/javascript">
+              otherLogin();
+            </script>
+          </div>
         </div>
       </div>
-
     </div>
+
+    <div class="boxRegist" id="regist">
+      <div class="regist5">
+        <h2>用户——注册</h2>
+        <a onclick="closeRegist()"></a>
+        <!--╳-->
+      </div>
+      <div class="regist51">
+        <div name="regist5form">
+          <div class="regist5left">
+            <span></span>
+            <!-- 账号-->
+            <div class="regist5left1">
+              <label> 用户名：</label>
+              <input type="text" id="username" placeholder="用户名" />
+            </div>
+            <!-- 密码-->
+            <div class="regist5left1">
+              <label> 密 码：</label>
+              <input type="password" id="password" placeholder="密码" />
+            </div>
+            <div class="regist5left1">
+              <label> 邮 箱：</label>
+              <input type="text" id="email" placeholder="邮箱" />
+            </div>
+            <div class="regist5left1">
+              <label> 手机号：</label>
+              <input type="text" id="phone" placeholder="手机号" />
+            </div>
+            <!--验证码 -->
+            <div class="regist5left1">
+              <label> 验证码：</label>
+              <input type="text" class="ipt_vry" name="ipt_vry" placeholder="验证码" />
+              <input type="button" id='r_checkCode' class="pro_vry" name="pro_vry" value="" onclick="initCode()">
+            </div>
+          </div>
+          <div class="regist5right">
+            <!--头像-->
+            <label> 请选择你的头像：</label>
+            <div class="regist5photo" id="imgPreview">
+              <img id="imghead" class="regist5PreImg">
+            </div>
+            <div class="regist5file">
+              <input type="file" onchange="previewImage(this)" id="fileupload">
+            </div>
+          </div>
+          <!-- 注册-->
+          <div class="regist5btn">
+            <button class="dl" onclick="regist()">注册</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
-</div>
-
-<!--主体-->
-<div class="ibody">
-  <header>
-    <h1>天道酬勤——厚德载物</h1>
-    <h2>天行健，君子以自强不息；地势坤，君子以厚德载物。</h2>
-    <div class="logo"><a href="/"></a></div>
-    <nav id="topnav">
-      <a href="index.html">首页</a>
-      <a href="about.html">关于我</a>
-      <a href="life.html">慢生活</a>
-      <a href="share.html">在分享</a>
-      <a href="message.html">留言板</a>
-    </nav>
-  </header>
-  <article>
-    <div class="banner">
-      <ul class="texts">
-        <p>The best life is use of willing attitude, a happy-go-lucky life. </p>
-        <p>最好的生活是用心甘情愿的态度，过随遇而安的生活。</p>
-      </ul>
-    </div>
-    <div class="bloglist">
-      <h2>
-        <p><span>推荐</span>文章</p>
-      </h2>
-      <div class="blogs">
-        <h3><a href="/">犯错了怎么办？</a></h3>
-        <figure><img src="images/01.jpg" ></figure>
-        <ul>
-          <p>看到昔日好友发了一篇日志《咎由自取》他说他是一个悲观者，感觉社会抛弃了他，脾气、性格在6年的时间里变化很大，很难适应这个社会。人生其实就是不断犯错的过程，在这个过程中不断的犯错，不断的吸取教训，不断的成长。也许日子里的惊涛骇浪，不过是人生中的水花摇晃，别用显微镜放大你的悲伤。</p>
-          <a href="/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
-        </ul>
-        <p class="autor"><span>作者：杨青</span><span>分类：【<a href="/">日记</a>】</span><span>浏览（<a href="/">459</a>）</span><span>评论（<a href="/">30</a>）</span></p>
-        <div class="dateview">2014-04-08</div>
+  <!--主体-->
+  <div class="ibody">
+    <header>
+      <h1>天道酬勤——厚德载物</h1>
+      <h2>天行健，君子以自强不息；地势坤，君子以厚德载物。</h2>
+      <div class="logo">
+        <a href="/"></a>
       </div>
-      <div class="blogs">
-        <h3><a href="/">个人博客模板（2014草根寻梦）</a></h3>
-        <figure><img src="images/02.jpg" ></figure>
-        <ul>
-          <p>2014第一版《草根寻梦》个人博客模板简单、优雅、稳重、大气、低调。专为年轻有志向却又低调的草根站长设计。模板采用html5+css3设计，nav导航实现鼠标悬停渐变显示英文标题的效果。banner部分，选择大图作为背景，利用css3中animation属性结合文字图片实现文字从左到右的渐变效果</p>
-          <a href="/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+      <nav id="topnav">
+        <a href="index.html" id="topnav_current">首页</a>
+        <a href="about.html">关于我</a>
+        <a href="life.html">慢生活</a>
+        <a href="share.html">在分享</a>
+        <a href="message.html">留言板</a>
+        <a href="manage.html" class="admin" >管理员</a>
+      </nav>
+    </header>
+    <article>
+      <div class="banner">
+        <ul class="texts">
+          <p>The best life is use of willing attitude, a happy-go-lucky life. </p>
+          <p>最好的生活是用心甘情愿的态度，过随遇而安的生活。</p>
         </ul>
-        <p class="autor"><span>作者：杨青</span><span>分类：【<a href="/">个人博客模板</a>】</span><span>浏览（<a href="/">459</a>）</span><span>评论（<a href="/">30</a>）</span></p>
-        <div class="dateview">2014-02-19</div>
       </div>
-      <div class="blogs">
-        <h3><a href="/">我的个人博客之――阿里云空间选择</a></h3>
-        <figure><img src="images/03.png" ></figure>
-        <ul>
-          <p>之前服务器放在电信机房， 联通用户访问速度很不稳定，经常出现访问速度慢的问题，换到阿里云解决了之前的问题。很多人都问我的博客选得什么空间，一年的费用得多少钱，今天我列个表出来，供大家参考。</p>
-          <a href="/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
-        </ul>
-        <p class="autor"><span>作者：杨青</span><span>分类：【<a href="/">网站建设</a>】</span><span>浏览（<a href="/">459</a>）</span><span>评论（<a href="/">30</a>）</span></p>
-        <div class="dateview">2014-01-18</div>
-      </div>
-      <div class="blogs">
-        <h3><a href="/">从摄影作品中获取网页颜色搭配技巧</a></h3>
-        <figure><img src="images/04.jpg" ></figure>
-        <ul>
-          <p>作为一个优秀、专业的网页设计师，首先要了解各种颜色的象征，以及不同类型网站常用的色彩搭配。色彩搭配看似复杂,但并不神秘。一般来说,网页的背景色应该柔和一些、素一些、淡一些,再配上深色的文字,使人看起来自然、舒畅。色彩是人的视觉最敏感的东西。主页的色彩处理得好，可以锦上添花，达到事半功倍的效果。</p>
-          <a href="/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
-        </ul>
-        <p class="autor"><span>作者：杨青</span><span>分类：【<a href="/">心得笔记</a>】</span><span>浏览（<a href="/">459</a>）</span><span>评论（<a href="/">30</a>）</span></p>
-        <div class="dateview">2014-01-09</div>
-      </div>
-      <div class="blogs">
-        <h3><a href="/">css3制作的一个魔方</a></h3>
-        <figure><img src="images/04.png" ></figure>
-        <ul>
-          本应用由CSS3代码实现，无图片和flash，请使用Chrome等webkit内核浏览器或Firefox打开。破解攻略和大家分享下：首先，破解魔方，我们就要先了解它的结构，魔方共6色6面，每面又分为中央块（最中间的块6个）、角块（4角的块8个）和边块（4条边中间的块12个）...
+      <div class="bloglist">
+        <h2>
+          <p>
+            <span>推荐</span>文章</p>
+        </h2>
+        <!-- <div class="blogs">
+          <h3>
+            <a href="/">犯错了怎么办？</a>
+          </h3>
+          <figure>
+            <img src="images/01.jpg">
+          </figure>
+          <ul>
+            <p>看到昔日好友发了一篇日志《咎由自取》他说他是一个悲观者，感觉社会抛弃了他，脾气、性格在6年的时间里变化很大，很难适应这个社会。人生其实就是不断犯错的过程，在这个过程中不断的犯错，不断的吸取教训，不断的成长。也许日子里的惊涛骇浪，不过是人生中的水花摇晃，别用显微镜放大你的悲伤。</p>
+            <a href="/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+          </ul>
+          <p class="autor">
+            <span>作者：杨青</span>
+            <span>分类：【
+              <a href="/">日记</a>】</span>
+            <span>浏览（
+              <a href="/">459</a>）</span>
+            <span>评论（
+              <a href="/">30</a>）</span>
           </p>
-          <a href="/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
-        </ul>
-        <p class="autor"><span>作者：杨青</span><span>分类：【<a href="/">css3</a>】</span><span>浏览（<a href="/">459</a>）</span><span>评论（<a href="/">30</a>）</span></p>
-        <div class="dateview">2013-09-05</div>
+          <div class="dateview">2014-04-08</div>
+        </div> -->
       </div>
-    </div>
-    <!---->
-    <div class="otherlink">
-      <h2>相关文章</h2>
-      <ul>
-        <li><a href="/news/s/2013-07-25/524.html" title="现在，我相信爱情！">现在，我相信爱情！</a></li>
-        <li><a href="/newstalk/mood/2013-07-24/518.html" title="我希望我的爱情是这样的">我希望我的爱情是这样的</a></li>
-        <li><a href="/newstalk/mood/2013-07-02/335.html" title="有种情谊，不是爱情，也算不得友情">有种情谊，不是爱情，也算不得友情</a></li>
-        <li><a href="/newstalk/mood/2013-07-01/329.html" title="世上最美好的爱情">世上最美好的爱情</a></li>
-        <li><a href="/news/read/2013-06-11/213.html" title="爱情没有永远，地老天荒也走不完">爱情没有永远，地老天荒也走不完</a></li>
-        <li><a href="/news/s/2013-06-06/24.html" title="爱情的背叛者">爱情的背叛者</a></li>
-      </ul>
-    </div>
+      <!---->
+      <!-- 页码 -->
+      <div class="page">
+          <div class="pre">
+              <a onclick="goPage(this)" name="1" class="on all">1</a>
+              <a onclick="preList()">&lt;&lt;</a>
+              <a onclick="prePage()">&lt;</a>
+          </div>
+          <div class="pagelist"  >
+              
+          </div>
+          <div class="net">
+              <a onclick="nextPage()">&gt;</a>
+              <a onclick="nextList()">&gt;&gt;</a>
+          </div>
+      </div>
+      <!--  -->
+      <div class="otherlink">
+        <h2>相关文章</h2>
+        <ul>
+          <li>
+            <a href="/news/s/2013-07-25/524.html" title="现在，我相信爱情！">现在，我相信爱情！</a>
+          </li>
+          <li>
+            <a href="/newstalk/mood/2013-07-24/518.html" title="我希望我的爱情是这样的">我希望我的爱情是这样的</a>
+          </li>
+          <li>
+            <a href="/newstalk/mood/2013-07-02/335.html" title="有种情谊，不是爱情，也算不得友情">有种情谊，不是爱情，也算不得友情</a>
+          </li>
+          <li>
+            <a href="/newstalk/mood/2013-07-01/329.html" title="世上最美好的爱情">世上最美好的爱情</a>
+          </li>
+          <li>
+            <a href="/news/read/2013-06-11/213.html" title="爱情没有永远，地老天荒也走不完">爱情没有永远，地老天荒也走不完</a>
+          </li>
+          <li>
+            <a href="/news/s/2013-06-06/24.html" title="爱情的背叛者">爱情的背叛者</a>
+          </li>
+        </ul>
+      </div>
 
-  </article>
-  <aside>
-    <div class="avatar"><a href="about.html"><span>关于HC</span></a></div>
-    <div class="topspaceinfo">
-      <h1>执子之手，与子偕老</h1>
-      <p>于千万人之中，我遇见了我所遇见的人....</p>
-    </div>
-    <div class="about_c">
-      <p>网名：hack | 骇客</p>
-      <p>职业：Web前端、Java开发、node全栈 </p>
-      <p>籍贯：安徽省―淮北市</p>
-      <p>电话：18817509369</p>
-      <p>邮箱：1984146116@qq.com</p>
-    </div>
-    <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_more" data-cmd="more"></a></div>
-    <div class="tj_news">
-      <h2>
-        <p class="tj_t1">最新文章</p>
-      </h2>
-      <ul>
-        <li><a href="/">犯错了怎么办？</a></li>
-        <li><a href="/">两只蜗牛艰难又浪漫的一吻</a></li>
-        <li><a href="/">春暖花开-走走停停-发现美</a></li>
-        <li><a href="/">琰智国际-Nativ for Life官方网站</a></li>
-        <li><a href="/">个人博客模板（2014草根寻梦）</a></li>
-        <li><a href="/">简单手工纸玫瑰</a></li>
-        <li><a href="/">响应式个人博客模板（蓝色清新）</a></li>
-        <li><a href="/">蓝色政府（卫生计划生育局）网站</a></li>
-      </ul>
-      <h2>
-        <p class="tj_t2">推荐文章</p>
-      </h2>
-      <ul>
-        <li><a href="/">犯错了怎么办？</a></li>
-        <li><a href="/">两只蜗牛艰难又浪漫的一吻</a></li>
-        <li><a href="/">春暖花开-走走停停-发现美</a></li>
-        <li><a href="/">琰智国际-Nativ for Life官方网站</a></li>
-        <li><a href="/">个人博客模板（2014草根寻梦）</a></li>
-        <li><a href="/">简单手工纸玫瑰</a></li>
-        <li><a href="/">响应式个人博客模板（蓝色清新）</a></li>
-        <li><a href="/">蓝色政府（卫生计划生育局）网站</a></li>
-      </ul>
-    </div>
-    <div class="links">
-      <h2>
-        <p>友情链接</p>
-      </h2>
-      <ul>
-        <li><a href="/">HC个人博客</a></li>
-        <li><a href="/">3DST技术社区</a></li>
-      </ul>
-    </div>
-    <div class="copyright">
-      <ul>
-        <p> Design by <a href="/">HC</a></p>
-        <p>皖ICP备17023783号</p>
-        <p>Copyright © 2017 HC. All Rights Reserved.</p>
-        </p>
-      </ul>
-    </div>
-  </aside>
-  <script src="js/silder.js"></script>
-  <div class="clear"></div>
-  <!-- 清除浮动 --> 
-</div>
+    </article>
+    <aside>
+      <div class="avatar">
+        <a href="about.html">
+          <span>关于HC</span>
+        </a>
+      </div>
+      <div class="topspaceinfo">
+        <h1>执子之手，与子偕老</h1>
+        <p>于千万人之中，我遇见了我所遇见的人....</p>
+      </div>
+      <div class="about_c">
+        <p>网名：hack | 骇客</p>
+        <p>职业：Web前端、Java开发、node全栈 </p>
+        <p>籍贯：安徽省―淮北市</p>
+        <p>电话：18817509369</p>
+        <p>邮箱：1984146116@qq.com</p>
+      </div>
+      <div class="bdsharebuttonbox">
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+        <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_more" data-cmd="more"></a>
+      </div>
+      <div class="tj_news">
+        <h2>
+          <p class="tj_t1">最新文章</p>
+        </h2>
+        <ul class="new">
+           
+        </ul>
+        <h2>
+          <p class="tj_t2">推荐文章</p>
+        </h2>
+        <ul class="hot">
+          
+        </ul>
+      </div>
+      <div class="links">
+        <h2>
+          <p>友情链接</p>
+        </h2>
+        <ul>
+          <li>
+            <a href="/">HC个人博客</a>
+          </li>
+          <li>
+            <a href="/">3DST技术社区</a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <ul>
+          <p> Design by
+            <a href="/">HC</a>
+          </p>
+          <p>皖ICP备17023783号</p>
+          <p>Copyright © 2017 HC. All Rights Reserved.</p>
+          </p>
+        </ul>
+      </div>
+    </aside>
+     <div class="clear"></div>
+    <!-- 清除浮动 -->
+  </div>
 </body>
-  <script >
-      <!--页面初始化-->
-      indexInit();
-  </script>
+<script>
+  // <!--页面初始化-->
+  indexInit();
+</script>
+
 </html>

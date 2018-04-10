@@ -1,6 +1,6 @@
 var redis = require('redis'),
     // RDS_PORT = 6379,        //端口号
-    RDS_PORT = 7000,        //端口号
+    RDS_PORT = 7005,        //端口号
     RDS_HOST = '115.159.112.111',    //服务器IP
     // RDS_HOST = '10.105.48.221',    //服务器IP
     // RDS_PWD = '',

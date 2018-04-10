@@ -36,10 +36,9 @@ a:hover { text-decoration: none; }
     width: 50%;
 }
 .topnav .search .form .submit {
-    height: 26px;
-    background: #000000;
+    height: 29px;
     color: #ffffff;
-    width: 40px;
+    width: 55px;
 }
 
 .topnav .login-regist {
@@ -182,8 +181,18 @@ header h2 { margin: 20px 80px; color: #8e8d8d }
 .logo:hover { background: url(../images/home.png) no-repeat #000 center; }
 .logo a { width: 100%; height: 100%; display: block }
 /* 导航 */
-nav { background: rgba(0,0,0,0.8); width: 55%; height: 48px; line-height: 48px; padding-left: 80px; filter: progid:DXImageTransform.Microsoft.gradient(gradientType = 0, startColorstr = #3333333, endColorstr = #3333333);
-}/* 兼容IE6 透明 */
+nav { 
+    background: rgba(0,0,0,0.8); 
+    width: auto; 
+    height: 48px; 
+    line-height: 48px; 
+    padding-left: 80px; 
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType = 0, startColorstr = #333333, endColorstr = #333333);
+}
+nav .admin {
+    display: none
+}
+/* 兼容IE6 透明 */
 nav a { display: inline-block; font-size: 18px; font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif; color: #FFF; padding: 0 20px; -webkit-transition: all 1s; -moz-transition: all 1s; -o-transition: all 1s; transition: all 1s; }
 nav a:hover { background: #e41635; }
 #topnav_current { background: #e41635 }/* 高亮选中颜色 */

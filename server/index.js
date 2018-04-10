@@ -11,7 +11,13 @@ var server = restify.createServer();
 router(server);
 
 server.listen(8000,'127.0.0.1',function () {
-    console.log("服务器已开启：127.0.0.1:8000正在监听。。。");
+    newFunction();
     redisClusterClient.redisClusterConn();
     mongodbClient.mongodbConn();
 });
+
+
+function newFunction() {
+    console.log("服务器已开启：127.0.0.1:8000正在监听。。。");
+}
+

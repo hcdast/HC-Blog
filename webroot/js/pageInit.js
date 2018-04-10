@@ -1,30 +1,54 @@
 
 //  主页面初始化
 function indexInit() {
-    statuFlush();
-
+    statuFlush(function (type) { 
+        initIndexData();
+        newArticle();
+        hotArticle();
+    });
 }
 //  关于我页面初始化
 function aboutInit() {
-    statuFlush();
+    statuFlush(function (type) { 
+        
+    });
+    
 }
 //  慢生活页面初始化
 function lifeInit() {
-    statuFlush();
+    statuFlush(function (type) { 
+        recentVisitors();
+        initLifeData();
+        clickRank();
+        hotRank();
+    });
+
 }
 //  留言板页面初始化
 function messageInit() {
-    statuFlush();
-    initData();
+    statuFlush(function (type) { 
+        initMessageData();
+        recentVisitors();
+    });
+   
 }
 //  在分享页面初始化
 function shareInit() {
-    statuFlush();
+    statuFlush(function (type) { 
+        recentVisitors();
+     });
+   
+}
+// 管理员页面初始化
+function manageInit(){
+     statuFlush( function (type) {
+        if(type > 2)  localUrlIndex();
+    });
+    
 }
 
-
 //  用户登陆状态检测
-function statuFlush(){
+function statuFlush(callback){
     var userStatu=getCookie('loginStatu');
     if(userStatu) {
         if(userStatu=="qq"){
@@ -46,10 +70,29 @@ function statuFlush(){
                     toastr.error("账号状态出错！请重新登录。。。", "错误");
                     clearCookie('loginStatu');
                     clearCookie('token');
+                    clearCookie('userava');
+                    clearCookie('username');
+                    clearCookie('identity');
                 }else{
                     if(userStatu=="blog"){
                         var userdata= {name:getCookie("username"),ava: getCookie("userava")};
                         createLoginData(userdata);
+                        var identity =  parseInt(getCookie("identity"));
+                        if(identity < 3){
+                            $(".admin").css({"display":"inline-block"});
+                        }
+                        setCookie("identity",identity,function () {
+                              callback(identity);
+                        });
+                        
+                    }else if(userStatu=="qq"){
+                            var identity =  parseInt(getCookie("identity"));
+                            if(identity < 3){
+                                $(".admin").css({"display":"inline-block"});
+                            }
+                            setCookie("identity",identity,function () {
+                                 callback(identity);
+                            });
                     }
                 }
             }
@@ -60,33 +103,32 @@ function statuFlush(){
         document.getElementById("login-regist").style.display = 'block';
         document.getElementById("QQloginStatu").style.display = 'none';
         document.getElementById("blogLoginStatu").style.display = 'none';
+        callback(5);
     }
 }
+// 主页
 
-//  留言板页面数据初始化
-function initData() {
+
+//  最近访客
+function recentVisitors() {
     $.ajax({
-        type: "post",
-        url: "/api/message/initdata",
+        type: "get",
+        url: "/api/message/recentVisitors",
         dataType: "json",
-        data:{page:1},
+        // data:{page:1},
         error: function () {
-            toastr.err("留言数据获取失败！","错误");
+            toastr.err("最近访客数据获取失败！","错误");
         },
         success: function (result) {
             if(result.statu=="success"){
-                if(result.data.length>0){
-                    $("#nodatalog").css({"display":"none"});
-                    $("#pagenum").css({"display":"block"});
-                    showMessage(1,result.data);
-                }else{
-                    $("#nodatalog").css({"display":"block"});
-                    $("#pagenum").css({"display":"none"});
+                var visitors = document.getElementById("recentvisitorslist");
+                for(var i in result.data){
+                    visitors.innerHTML+="<img src='"+result.data[i].ava+"' alt='"+result.data[i].name+"'>";
+
                 }
             }else{
                 toastr.err(result.msg,"错误");
             }
-
         }
     });
 }

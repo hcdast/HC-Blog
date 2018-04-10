@@ -1,12 +1,15 @@
 {
-"_id":"",
-"author":"",
-"type":"",
-"title":"",
-"imgUrl":"",
-"pageUrl":"",
-"pit":"",
-"praise":"",
-"report":"",
-"comments":[{}]
+"_id":"",                       id
+"author":"",                    分享者（1:hc  2:yn ...）
+"type":"",                      类型（0:书、1:人 、2:电影、3:记忆）
+"title":"",                     标题
+"content": ""                   简介
+"imgurl":"",                    配图地址
+"pageurl":"",                   页面地址
+"time":""                       分享时间
+"clicknum":""                   点击量
+"pit":"",                       差评
+"praise":"",                    好评
+"report":"",                    举报
+"comments":[{}]                 评论
 }
